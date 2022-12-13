@@ -11,11 +11,13 @@ import { ListeProspectComponent } from './components/prospect/liste-prospect/lis
 import { AjoutProspectComponent } from './components/prospect/ajout-prospect/ajout-prospect.component';
 import { HeaderComponent } from './components/partials/header/header.component';
 import { FooterComponent } from './components/partials/footer/footer.component';
+
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { InterceptorService } from './services/interceptor.service';
 import { AuthentificationComponent } from './authentification/authentification.component';
+
 
 @NgModule({
   declarations: [
@@ -36,7 +38,6 @@ import { AuthentificationComponent } from './authentification/authentification.c
     AppRoutingModule,
     FormsModule,
     HttpClientModule
-
   ],
   providers: [{provide: HTTP_INTERCEPTORS,useClass:InterceptorService,multi:true}],
   bootstrap: [AppComponent]
