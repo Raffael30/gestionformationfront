@@ -11,6 +11,9 @@ import { ListeProspectComponent } from './components/prospect/liste-prospect/lis
 import { AjoutProspectComponent } from './components/prospect/ajout-prospect/ajout-prospect.component';
 import { HeaderComponent } from './components/partials/header/header.component';
 import { FooterComponent } from './components/partials/footer/footer.component';
+import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -25,8 +28,11 @@ import { FooterComponent } from './components/partials/footer/footer.component';
     FooterComponent
   ],
   imports: [
+    RouterModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
