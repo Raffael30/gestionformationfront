@@ -11,10 +11,6 @@ import { ListeProspectComponent } from './components/prospect/liste-prospect/lis
 import { AjoutProspectComponent } from './components/prospect/ajout-prospect/ajout-prospect.component';
 import { HeaderComponent } from './components/partials/header/header.component';
 import { FooterComponent } from './components/partials/footer/footer.component';
-import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
-
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
