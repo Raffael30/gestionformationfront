@@ -1,1 +1,51 @@
-<p>header works!</p>
+<header class="mb-5">
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" routerLink="/">Accueil</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <div class="navbar-nav mx-lg-auto">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="/utilisateurs">Utilisateurs</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="/etudiants">Etudiants</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="/formateurs">Formateurs</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="/prospects">Prospects</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="/formations">Formations</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="/rendezvous">Rendez-Vous</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="/messages">Messages</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="/paiements">Paiements</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="navbar-nav d-flex">
+                    <li class="nav-item" *ngIf="utilisateur != null">
+                        <a class="nav-link me-3">{{utilisateur + ' ' + utilisateur}}</a>
+                    </li>
+                    <li class="nav-item" *ngIf="utilisateur != null">
+                        <a class="nav-link" (click)="logout()">Déconnexion</a>
+                    </li>
+                </div>
+
+            </div>
+        </div>
+    </nav>
+</header>
