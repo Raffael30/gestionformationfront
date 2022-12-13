@@ -1,4 +1,56 @@
 <app-header></app-header>
 
 
+<div class="container">
+
+    <form #f="ngForm" (ngSubmit)="infor(f)">
+
+        <fieldset>
+
+            <legend class="text-center">Gestion des formations</legend>
+
+            <div class="mb-3">
+                <label for="nom">Nom</label>
+                <input type="text" class="form-control" id="nom" name="nom" [(ngModel)]="formation.nom" />
+            </div>
+
+            <div class="mb-3">
+                <label for="lieu">Lieu</label>
+                <input type="text" class="form-control" id="lieu" name="lieu" [(ngModel)]="formation.lieu" />
+            </div>
+
+            <div class="mb-3">
+                <label for="prix">Prix</label>
+                <input type="text" class="form-control" id="prix" name="prix" [(ngModel)]="formation.prix" />
+            </div>
+
+            <div class="mb-3">
+                <label for="dateDebut">Date Début</label>
+                <input type="date" class="form-control" id="dateDebut" name="dateDebut" [(ngModel)]="formation.dateDebut" />
+            </div>
+
+            <div class="mb-3">
+                <label for="dateFin">Date Fin</label>
+                <input type="date" class="form-control" id="dateFin" name="dateFin" [(ngModel)]="formation.dateFin" />
+            </div>
+
+            <!--
+            <div class="mb-3">
+                <label for="idRegion" class="form-label">Région</label>
+                <select [(ngModel)]="idRegion" name="idRegion" class="form-control">
+                    <option [value]="0" disabled>---Selectionnez une région---</option>
+                    <option *ngFor="let region of regions" [value]="region.id">{{region.nom}}</option>
+                </select>
+            </div>
+-->
+            <div class="mb-3 text-center">
+                <input class="btn btn-primary" type="submit" value="Ajouter" />
+            </div>
+
+        </fieldset>
+
+    </form>
+
+</div>
+<app-liste-formation></app-liste-formation>
 <app-footer></app-footer>
