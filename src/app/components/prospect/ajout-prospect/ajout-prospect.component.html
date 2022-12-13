@@ -1,1 +1,47 @@
-<p>ajout-prospect works!</p>
+<h1 class="text-center">Contactez-nous !</h1>
+
+<div class="container">
+
+    <form #f="ngForm" (ngSubmit)="infor(f)">
+
+        <fieldset>
+
+            <legend class="text-center">Vos coordonnées</legend>
+
+            <div class="mb-3">
+                <label for="nom">Nom</label>
+                <input type="text" class="form-control" id="nom" name="nom" [(ngModel)]="prospect.nom" />
+            </div>
+
+            <div class="mb-3">
+                <label for="prenom">Prenom</label>
+                <input type="text" class="form-control" id="prenom" name="prenom" [(ngModel)]="prospect.prenom" />
+            </div>
+
+            <div class="mb-3">
+                <label for="prenom">Adresse email</label>
+                <input type="email" class="form-control" id="email" name="email" [(ngModel)]="prospect.email" />
+            </div>
+
+            <div class="mb-3">
+                <label for="adresse">Adresse postale</label>
+                <input type="adresse" class="form-control" id="adresse" name="adresse" [(ngModel)]="prospect.adresse" />
+            </div>
+
+            <div class="mb-3">
+                <label for="idRegion" class="form-label">Région</label>
+                <select [(ngModel)]="idRegion" name="idRegion" class="form-control">
+                    <option [value]="0" disabled>---Selectionnez une région---</option>
+                    <option *ngFor="let region of regions" [value]="region.id">{{region.nom}}</option>
+                </select>
+            </div>
+
+            <div class="mb-3 text-center">
+                <input class="btn btn-primary" type="submit" value="Envoyer" />
+            </div>
+
+        </fieldset>
+
+    </form>
+
+</div>

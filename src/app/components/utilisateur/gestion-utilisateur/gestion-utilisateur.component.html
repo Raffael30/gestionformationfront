@@ -1,4 +1,24 @@
 <app-header></app-header>
 
 
+
+    role!:Role;
+
+<form (ngSubmit)="ajouter()">
+    Nom : <input type="text" name="nom" [(ngModel)]="utilisateur.nom" placeholder="Nom ici"> <br>
+    Prenom : <input type="text" name="prenom" [(ngModel)]="utilisateur.prenom" placeholder="Prenom ici"> <br>
+    Nom d'utilisateur : <input type="text" name="username" [(ngModel)]="utilisateur.username" placeholder="Nom d'utilisateur ici"> <br>
+    Mot de passe : <input type="password" name="password" [(ngModel)]="utilisateur.password" placeholder="Mot de passe ici"> <br>
+    Adresse : <input type="text" name="adresse" [(ngModel)]="utilisateur.adresse" placeholder="Adresse ici"> <br>
+    Email : <input type="text" name="email" [(ngModel)]="utilisateur.email" placeholder="Adresse ici"> <br>
+    Telephone : <input type="text" name="telephone" [(ngModel)]="utilisateur.telephone" placeholder="Telephone ici"> <br>
+    Date d'inscription : <input type="date" name="dateInscription" [(ngModel)]="utilisateur.dateInscription" placeholder="Region ici"> <br>
+
+     <button type="submit">Ajouter</button>
+     <button type="reset">Annuler</button>
+ 
+ </form>
+
+<app-liste-utilisateur></app-liste-utilisateur>
+
 <app-footer></app-footer>
