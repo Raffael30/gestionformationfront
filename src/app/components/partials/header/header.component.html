@@ -13,10 +13,16 @@
                             <a class="nav-link" routerLink="/utilisateurs">Utilisateurs</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" routerLink="/etudiants">Etudiants</a>
+                            <a class="nav-link" routerLink="/utilisateurs/assistants">Assistants</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" routerLink="/formateurs">Formateurs</a>
+                            <a class="nav-link" routerLink="/utilisateurs/commercials">Commercials</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="/utilisateurs/formateurs">Formateurs</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="/utilisateurs/participants">Participants</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" routerLink="/prospects">Prospects</a>
@@ -38,7 +44,7 @@
 
                 <div class="navbar-nav d-flex">
                     <li class="nav-item" *ngIf="utilisateur != null">
-                        <a class="nav-link me-3">{{utilisateur + ' ' + utilisateur}}</a>
+                        <a class="nav-link me-3">{{utilisateur.prenom + ' ' + utilisateur.nom}}</a>
                     </li>
                     <li class="nav-item" *ngIf="utilisateur != null">
                         <a class="nav-link" (click)="logout()">Déconnexion</a>

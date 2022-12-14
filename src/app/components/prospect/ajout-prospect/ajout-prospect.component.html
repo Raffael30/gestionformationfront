@@ -19,13 +19,18 @@
             </div>
 
             <div class="mb-3">
-                <label for="prenom">Adresse email</label>
+                <label for="email">Adresse email</label>
                 <input type="email" class="form-control" id="email" name="email" [(ngModel)]="prospect.email" />
             </div>
 
             <div class="mb-3">
                 <label for="adresse">Adresse postale</label>
-                <input type="adresse" class="form-control" id="adresse" name="adresse" [(ngModel)]="prospect.adresse" />
+                <input type="text" class="form-control" id="adresse" name="adresse" [(ngModel)]="prospect.adresse" />
+            </div>
+
+            <div class="mb-3">
+                <label for="telephone">Téléphone</label>
+                <input type="text" class="form-control" id="telephone" name="telephone" [(ngModel)]="prospect.telephone" />
             </div>
 
             <div class="mb-3">
