@@ -13,16 +13,16 @@
                             <a class="nav-link" routerLink="/utilisateurs">Utilisateurs</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" routerLink="/utilisateurs/assistants">Assistants</a>
+                            <a class="nav-link" routerLink="/utilisateurs/assistant">Assistants</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" routerLink="/utilisateurs/commercials">Commercials</a>
+                            <a class="nav-link" routerLink="/utilisateurs/commercial">Commerciaux</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" routerLink="/utilisateurs/formateurs">Formateurs</a>
+                            <a class="nav-link" routerLink="/utilisateurs/formateur">Formateurs</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" routerLink="/utilisateurs/participants">Participants</a>
+                            <a class="nav-link" routerLink="/utilisateurs/participant">Participants</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" routerLink="/prospects">Prospects</a>
@@ -43,10 +43,10 @@
                 </div>
 
                 <div class="navbar-nav d-flex">
-                    <li class="nav-item" *ngIf="utilisateur != null">
-                        <a class="nav-link me-3">{{utilisateur.prenom + ' ' + utilisateur.nom}}</a>
+                    <li class="nav-item" *ngIf="connectedUser != null">
+                        <a class="nav-link me-3">{{connectedUser.prenom + ' ' + connectedUser.nom}}</a>
                     </li>
-                    <li class="nav-item" *ngIf="utilisateur != null">
+                    <li class="nav-item" *ngIf="connectedUser != null">
                         <a class="nav-link" (click)="logout()">Déconnexion</a>
                     </li>
                 </div>

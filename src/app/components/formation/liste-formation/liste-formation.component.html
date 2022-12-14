@@ -1,4 +1,3 @@
-<app-header></app-header>
 
 
 <div class="container-fluid">
@@ -34,7 +33,7 @@
             <!--    <td>{{formation.utilisateur.prenom + " " + formation.utilisateur.nom}}</td>-->
             <!--    <td>{{formation.paiement.montant }}</td>-->
                 
-                <td><button class="btn btn-outline-primary" (click)="merge(formation)">Modifier</button></td>
+                <td><button class="btn btn-outline-primary" (click)="getById(formation.id)">Modifier</button></td>
                 <td><button class="btn btn-outline-danger" (click)="delete(formation.id)">Supprimer</button>
                 </td>
             </tr>

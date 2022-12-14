@@ -17,13 +17,13 @@ export class AuthenticateGuard implements CanActivate {
   }*/
 
 
-  utilisateur!: Utilisateur
+  connectedUser!: Utilisateur
   constructor(private route: Router) {  }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
 
     //check some condition
-    if (sessionStorage.getItem('utilisateur') == null) {
+    if (sessionStorage.getItem('connectedUser') == null) {
 
       this.route.navigateByUrl('connexion');
       return false;

@@ -11,7 +11,8 @@ const routes : Route [] = [
   {path: '', component: AccueilComponent},
   {path: 'connexion', component: AuthentificationComponent},
   {path: 'utilisateurs', component: GestionUtilisateurComponent, canActivate: [AuthenticateGuard]},
-  {path: 'formations', component: GestionFormationComponent},
+  {path: 'formations', component: GestionFormationComponent, canActivate:[AuthenticateGuard]},
+  {path: 'utilisateurs/:nomRole', component: GestionUtilisateurComponent, canActivate: [AuthenticateGuard]},
   {path: 'ajoutProspect', component: AjoutProspectComponent}
 
 
