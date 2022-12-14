@@ -38,9 +38,16 @@
                     <td>{{utilisateur.role.nom}}</td>
 
 
-                    <td *ngIf="connectedUser.role.nom==='admin'"><button class="btn btn-outline-primary" (click)="modifier(utilisateur.id)">Modifier</button>
+                    <td *ngIf="connectedUser.role.nom==='admin'">
+                        
+                            <button class="btn btn-outline-primary"   (click)="modificationUtilisateur(utilisateur.id)" >Modifier  </button>
+
+                           
+                        
+
                     </td>
-                    <td *ngIf="connectedUser.role.nom==='admin'"><button class="btn btn-outline-danger" (click)="supprimer(utilisateur.id)">Supprimer</button>
+                    <td *ngIf="connectedUser.role.nom==='admin'"><button class="btn btn-outline-danger"
+                            (click)="supprimer(utilisateur.id)">Supprimer</button>
                     </td>
                 </tr>
             </tbody>

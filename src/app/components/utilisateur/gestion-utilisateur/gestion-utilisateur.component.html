@@ -52,7 +52,7 @@
 
             <div class="mb-3">
                 <label for="idRegion" class="form-label">Région</label>
-                <select [(ngModel)]="idRegion" name="idRegion" class="form-control">
+                <select [(ngModel)]="idRegion" [(ngModel)]="utilisateur.region" name="idRegion" class="form-control">
                     <option [value]="0" disabled>---Selectionnez une région---</option>
                     <option *ngFor="let region of regions" [value]="region.id">{{region.nom}}</option>
                 </select>
@@ -77,6 +77,8 @@
 </div>
 
 
-<app-liste-utilisateur></app-liste-utilisateur>
+<app-liste-utilisateur (appelUtilisateur)="selectUtilisateur($event)"></app-liste-utilisateur>
 
+{{idUtilisateur}}
 <app-footer></app-footer>
+

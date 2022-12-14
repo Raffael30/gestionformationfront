@@ -21,6 +21,7 @@ export class GestionUtilisateurComponent {
   region!: Region;
   idRegion!: number;
   regions!: Region[];
+  idUtilisateur!:number;
 
   constructor(private utilisateurService: UtilisateurService, private roleService: RoleService, private regionService: RegionService) { }
 
@@ -28,12 +29,19 @@ export class GestionUtilisateurComponent {
 
     this.idRole = 0;
     this.idRegion = 0;
+    
     this.utilisateur = new Utilisateur();
     this.getAllRegions();
     this.getAllRoles();
   }
 
-
+  selectUtilisateur(idUtilisateur:number)
+  {
+    this.utilisateurService.getById(idUtilisateur).subscribe(response=>
+      {
+        this.utilisateur=response;
+      })
+  }
 
   getAllRegions() {
     this.regionService.getAll().subscribe(response =>
