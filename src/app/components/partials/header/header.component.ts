@@ -9,13 +9,13 @@ import { Utilisateur } from 'src/app/models/utilisateur';
 })
 export class HeaderComponent implements OnInit {
 
-  utilisateur!:Utilisateur;
+  connectedUser!:Utilisateur;
 
   constructor(private route:Router) {}
 
   ngOnInit(): void {
-    if(sessionStorage.getItem('utilisateur') != null) {
-      this.utilisateur = JSON.parse(sessionStorage.getItem('utilisateur') ?? "") ;
+    if(sessionStorage.getItem('connectedUser') != null) {
+      this.connectedUser = JSON.parse(sessionStorage.getItem('connectedUser') ?? "") ;
     }
   }
 

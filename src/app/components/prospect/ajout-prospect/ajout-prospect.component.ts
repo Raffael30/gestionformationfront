@@ -25,14 +25,20 @@ export class AjoutProspectComponent implements OnInit {
     this.statutService.getById(1).subscribe(
       response => {
         this.prospect.statut = response;
-        this.prospectService.merge(this.prospect).subscribe(response => {
-          this.route.navigateByUrl("/");
-        });
+        this.regionService.getById(this.idRegion).subscribe(response => {
+          this.prospect.region = response;
+          this.prospectService.merge(this.prospect).subscribe(response => {
+            window.location.reload();
+          });
+        }
+          )
+        
+        
       });
   }
 
   getAllRegions() {
-    this.regionService.getAll().subscribe(response => 
+    this.regionService.getAll().subscribe(response =>
       this.regions = response
     );
   }
