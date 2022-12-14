@@ -32,8 +32,6 @@ export class ListeUtilisateurComponent {
 
   ngOnInit(): void {
 
-   
-
     if(sessionStorage.getItem('connectedUser') != null) {
       this.connectedUser = JSON.parse(sessionStorage.getItem('connectedUser') ?? "") ;
     }

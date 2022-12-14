@@ -22,6 +22,14 @@ export class GestionFormationComponent implements OnInit{
     this.formation=new Formation()
   }
 
+  selectFormation(idFormation:number)
+  {
+    this.formationService.getById(idFormation).subscribe(response=>
+      {
+        this.formation=response;
+      })
+  }
+
   getAllFormation()
   {
     this.formationService.getAll().subscribe
