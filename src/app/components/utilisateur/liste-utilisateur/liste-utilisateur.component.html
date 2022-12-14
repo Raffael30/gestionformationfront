@@ -18,8 +18,8 @@
                     <th>Date d'inscription</th>
                     <th>Nom d'utilisateur</th>
                     <th>Role</th>
-                    <th>Modifier</th>
-                    <th>Supprimer</th>
+                    <th *ngIf="connectedUser.role.nom==='admin'">Modifier</th>
+                    <th *ngIf="connectedUser.role.nom==='admin'">Supprimer</th>
                 </tr>
             </thead>
             <tbody>
@@ -38,9 +38,9 @@
                     <td>{{utilisateur.role.nom}}</td>
 
 
-                    <td *ngIf="connectedUser."><button class="btn btn-outline-primary" (click)="modifier(utilisateur.id)">Modifier</button>
+                    <td *ngIf="connectedUser.role.nom==='admin'"><button class="btn btn-outline-primary" (click)="modifier(utilisateur.id)">Modifier</button>
                     </td>
-                    <td><button class="btn btn-outline-danger" (click)="supprimer(utilisateur.id)">Supprimer</button>
+                    <td *ngIf="connectedUser.role.nom==='admin'"><button class="btn btn-outline-danger" (click)="supprimer(utilisateur.id)">Supprimer</button>
                     </td>
                 </tr>
             </tbody>

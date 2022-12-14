@@ -16,6 +16,7 @@ export class ListeUtilisateurComponent {
 
   utilisateurs!: Utilisateur[];
   utilisateur!: Utilisateur;
+  connectedUser!: Utilisateur;
   roles!: Role[];
   role!: Role;
   idRole!: number;
@@ -29,6 +30,9 @@ export class ListeUtilisateurComponent {
 
   ngOnInit(): void {
 
+    if(sessionStorage.getItem('connectedUser') != null) {
+      this.connectedUser = JSON.parse(sessionStorage.getItem('connectedUser') ?? "") ;
+    }
     this.utilisateur = new Utilisateur();
     this.nomRole = this.activatedRoute.snapshot.params['nomRole'];
     if (this.nomRole) {
