@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Region } from 'src/app/models/region';
 import { Role } from 'src/app/models/role';
 import { Utilisateur } from 'src/app/models/utilisateur';
+import { RegionService } from 'src/app/services/region.service';
 import { RoleService } from 'src/app/services/role.service';
 import { UtilisateurService } from 'src/app/services/utilisateur.service';
 
@@ -12,72 +14,71 @@ import { UtilisateurService } from 'src/app/services/utilisateur.service';
 })
 export class ListeUtilisateurComponent {
 
-  utilisateurs!:Utilisateur[];
-  utilisateur!:Utilisateur;
-  roles!:Role[];
-  role!:Role;
-  idRole!:number;
-  region!:Region;
+  utilisateurs!: Utilisateur[];
+  utilisateur!: Utilisateur;
+  connectedUser!: Utilisateur;
+  roles!: Role[];
+  role!: Role;
+  idRole!: number;
+  idRegion!: number;
+  nomRole!: string;
 
-  constructor(private utilisateurService:UtilisateurService, private roleService:RoleService)
-  {}
+  constructor(private utilisateurService: UtilisateurService,
+    private roleService: RoleService,
+    private regionService: RegionService,
+    private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    
-   this.utilisateur= new Utilisateur();
-    this.getAll();
+
+    if(sessionStorage.getItem('connectedUser') != null) {
+      this.connectedUser = JSON.parse(sessionStorage.getItem('connectedUser') ?? "") ;
+    }
+    this.utilisateur = new Utilisateur();
+    this.nomRole = this.activatedRoute.snapshot.params['nomRole'];
+    if (this.nomRole) {
+      this.getAllByNomRole(this.nomRole)
+    }
+    else {
+      this.getAll();
+    }
+
+
+
+
   }
 
-  getAll()
-  {
+  getAll() {
     this.utilisateurService.getAll().subscribe(
-      response=>this.utilisateurs=response
+      response => this.utilisateurs = response
+    )
+  }
+
+  getAllByNomRole(nomRole: string) {
+    this.utilisateurService.getAllByNomRole(nomRole).subscribe(
+      response => this.utilisateurs = response
     )
   }
 
 
-  ajouter()
-  {
-    console.log('ajouter')
 
-        this.utilisateurService.ajouter(this.utilisateur).subscribe(
-          response=>
-          {
-            console.log('ok')
-            this.getAll();
-          },
-          error=>
-          {
-            console.log(' non ok')
-            console.log(error.message)
-          }
-        )
 
-  }
-
-  supprimer(id:number)
-  {
+  supprimer(id: number) {
     this.utilisateurService.supprimer(id).subscribe(
-      response=>
-      {
+      response => {
         this.getAll();
       },
-      error=>
-      {
+      error => {
         console.log(error.message)
       }
     )
   }
 
-  modifier(id:number)
-  {
+  modifier(id: number) {
     this.utilisateurService.getById(id).subscribe(
-      response=>
-      {
-       this.utilisateur=response;
+      response => {
+        this.utilisateur = response;
       },
-      error=>
-      {
+      error => {
         console.log(error.message)
       }
     )

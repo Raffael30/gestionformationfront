@@ -15,7 +15,7 @@ export class AuthentificationComponent implements OnInit {
 
   username!: string;
   password!: string;
-  utilisateur!: Utilisateur;
+  connectedUser!: Utilisateur;
   messageErreur!: string;
 
   constructor(private authentificationService: AuthentificationService, private route: Router, private http: HttpClient) { }
@@ -30,10 +30,9 @@ export class AuthentificationComponent implements OnInit {
       sessionStorage.setItem('token', "Bearer " + response.jwt);
 
       this.authentificationService.findByUsername(this.username).subscribe(response2 => {
-        this.utilisateur = response2;
-        sessionStorage.setItem('utilisateur', JSON.stringify(this.utilisateur));
-
-        this.route.navigateByUrl("utilisateurs");
+        this.connectedUser = response2;
+        sessionStorage.setItem('connectedUser', JSON.stringify(this.connectedUser));
+        this.route.navigateByUrl("/utilisateurs");
       })
 
     },

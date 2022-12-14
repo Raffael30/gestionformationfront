@@ -16,6 +16,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { InterceptorService } from './services/interceptor.service';
 import { AuthentificationComponent } from './authentification/authentification.component';
+import { AccueilComponent } from './components/accueil/accueil.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { AuthentificationComponent } from './authentification/authentification.c
     AjoutProspectComponent,
     HeaderComponent,
     FooterComponent,
-    AuthentificationComponent
+    AuthentificationComponent,
+    AccueilComponent
   ],
   imports: [
     RouterModule,
