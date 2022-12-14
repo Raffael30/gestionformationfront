@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Region } from 'src/app/models/region';
 import { Role } from 'src/app/models/role';
@@ -14,21 +14,25 @@ import { UtilisateurService } from 'src/app/services/utilisateur.service';
 })
 export class ListeUtilisateurComponent {
 
+  
   utilisateurs!: Utilisateur[];
   utilisateur!: Utilisateur;
   connectedUser!: Utilisateur;
-  roles!: Role[];
-  role!: Role;
   idRole!: number;
   idRegion!: number;
+  idUtilisateur!:number;
   nomRole!: string;
+  utilisateurSelected!:Utilisateur;
 
   constructor(private utilisateurService: UtilisateurService,
-    private roleService: RoleService,
-    private regionService: RegionService,
     private activatedRoute: ActivatedRoute) { }
 
+
+    @Output() appelUtilisateur= new EventEmitter<number>();
+
   ngOnInit(): void {
+
+   
 
     if(sessionStorage.getItem('connectedUser') != null) {
       this.connectedUser = JSON.parse(sessionStorage.getItem('connectedUser') ?? "") ;
@@ -43,9 +47,14 @@ export class ListeUtilisateurComponent {
     }
 
 
-
-
   }
+
+  modificationUtilisateur(idUtilisateur:number)
+    {
+     
+      this.idUtilisateur=idUtilisateur;
+      this.appelUtilisateur.emit(this.idUtilisateur);
+    }
 
   getAll() {
     this.utilisateurService.getAll().subscribe(
@@ -85,3 +94,5 @@ export class ListeUtilisateurComponent {
   }
 
 }
+
+
