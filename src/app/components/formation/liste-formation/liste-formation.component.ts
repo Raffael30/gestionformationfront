@@ -20,7 +20,8 @@ constructor(private formationService:FormationService){}
 
 
   ngOnInit(): void {
-    this.getAllformation()
+    this.getAllformation();
+    this.formation=new Formation();
   }
 
   getAllformation()
@@ -45,5 +46,10 @@ constructor(private formationService:FormationService){}
   {
     this.formationService.merge(formation).subscribe
     (response=>this.formation=response)
+  }
+
+  modifierFormation(id:number)
+  {
+    this.formationService.getById
   }
 }
