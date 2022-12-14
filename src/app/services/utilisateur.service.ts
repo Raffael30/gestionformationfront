@@ -13,6 +13,10 @@ export class UtilisateurService {
         return this.http.get<Utilisateur[]>('http://localhost:8015/api/utilisateurs');
     }
 
+    getAllByNomRole(nomRole: string){
+        return this.http.get<Utilisateur[]>(`http://localhost:8015/api/utilisateurs/roles/${nomRole}`);
+    }
+
     ajouter(utilisateur: Utilisateur) {
         return this.http.put('http://localhost:8015/api/utilisateurs', utilisateur);
     }

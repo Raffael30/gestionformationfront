@@ -2,22 +2,80 @@
 
 
 
-    role!:Role;
+<h1 class="text-center">Utilisateur</h1>
 
-<form (ngSubmit)="ajouter()">
-    Nom : <input type="text" name="nom" [(ngModel)]="utilisateur.nom" placeholder="Nom ici"> <br>
-    Prenom : <input type="text" name="prenom" [(ngModel)]="utilisateur.prenom" placeholder="Prenom ici"> <br>
-    Nom d'utilisateur : <input type="text" name="username" [(ngModel)]="utilisateur.username" placeholder="Nom d'utilisateur ici"> <br>
-    Mot de passe : <input type="password" name="password" [(ngModel)]="utilisateur.password" placeholder="Mot de passe ici"> <br>
-    Adresse : <input type="text" name="adresse" [(ngModel)]="utilisateur.adresse" placeholder="Adresse ici"> <br>
-    Email : <input type="text" name="email" [(ngModel)]="utilisateur.email" placeholder="Adresse ici"> <br>
-    Telephone : <input type="text" name="telephone" [(ngModel)]="utilisateur.telephone" placeholder="Telephone ici"> <br>
-    Date d'inscription : <input type="date" name="dateInscription" [(ngModel)]="utilisateur.dateInscription" placeholder="Region ici"> <br>
+<div class="container">
 
-     <button type="submit">Ajouter</button>
-     <button type="reset">Annuler</button>
- 
- </form>
+    <form #f="ngForm" (ngSubmit)="ajouter()">
+
+        <fieldset>
+
+            <legend class="text-center">Informations de l'utilisateur</legend>
+
+            <div class="mb-3">
+                <label for="nom">Nom</label>
+                <input type="text" class="form-control" id="nom" name="nom" [(ngModel)]="utilisateur.nom" />
+            </div>
+
+            <div class="mb-3">
+                <label for="prenom">Prenom</label>
+                <input type="text" class="form-control" id="prenom" name="prenom" [(ngModel)]="utilisateur.prenom" />
+            </div>
+
+            <div class="mb-3">
+                <label for="username">Nom d'utilisateur</label>
+                <input type="text" class="form-control" id="username" name="username"
+                    [(ngModel)]="utilisateur.username" />
+            </div>
+
+            <div class="mb-3">
+                <label for="password">Mot de passe</label>
+                <input type="password" class="form-control" id="password" name="password"
+                    [(ngModel)]="utilisateur.password" />
+            </div>
+
+            <div class="mb-3">
+                <label for="email">Adresse email</label>
+                <input type="email" class="form-control" id="email" name="email" [(ngModel)]="utilisateur.email" />
+            </div>
+
+            <div class="mb-3">
+                <label for="telephone">Telephone</label>
+                <input type="telephone" class="form-control" id="telephone" name="telephone" [(ngModel)]="utilisateur.telephone" />
+            </div>
+
+            <div class="mb-3">
+                <label for="adresse">Adresse postale</label>
+                <input type="adresse" class="form-control" id="adresse" name="adresse"
+                    [(ngModel)]="utilisateur.adresse" />
+            </div>
+
+            <div class="mb-3">
+                <label for="idRegion" class="form-label">Région</label>
+                <select [(ngModel)]="idRegion" name="idRegion" class="form-control">
+                    <option [value]="0" disabled>---Selectionnez une région---</option>
+                    <option *ngFor="let region of regions" [value]="region.id">{{region.nom}}</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="idRole" class="form-label">Role</label>
+                <select [(ngModel)]="idRole" name="idRole" class="form-control">
+                    <option [value]="0" disabled>---Selectionnez un role---</option>
+                    <option *ngFor="let role of roles" [value]="role.id">{{role.nom}}</option>
+                </select>
+            </div>
+
+            <div class="mb-3 text-center">
+                <input class="btn btn-primary" type="submit" value="Envoyer" />
+            </div>
+
+        </fieldset>
+
+    </form>
+
+</div>
+
 
 <app-liste-utilisateur></app-liste-utilisateur>
 

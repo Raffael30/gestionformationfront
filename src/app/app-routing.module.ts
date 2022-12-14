@@ -9,6 +9,7 @@ import { GestionUtilisateurComponent } from './components/utilisateur/gestion-ut
 const routes : Route [] = [
   {path: 'connexion', component: AuthentificationComponent},
   {path: 'utilisateurs', component: GestionUtilisateurComponent, canActivate: [AuthenticateGuard]},
+  {path: 'utilisateurs/:nomRole', component: GestionUtilisateurComponent, canActivate: [AuthenticateGuard]},
   {path: 'formations', component: GestionFormationComponent},
   {path: 'ajoutProspect', component: AjoutProspectComponent}
 
