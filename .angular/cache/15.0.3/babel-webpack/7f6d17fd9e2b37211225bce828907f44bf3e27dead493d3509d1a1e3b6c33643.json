@@ -1,0 +1,1 @@
+{"ast":null,"code":"export class Prospect {}","map":{"version":3,"mappings":"AAAA,OAAM,MAAOA,QAAQ","names":["Prospect"],"sourceRoot":"","sources":["C:\\Users\\goutm\\Desktop\\angular\\gestionformationfront\\src\\app\\models\\prospect.ts"],"sourcesContent":["export class Prospect {\r\n}\r\n"]},"metadata":{},"sourceType":"module","externalDependencies":[]}

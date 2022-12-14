@@ -1,0 +1,1 @@
+{"ast":null,"code":"export class Formation {}","map":{"version":3,"mappings":"AAAA,OAAM,MAAOA,SAAS","names":["Formation"],"sourceRoot":"","sources":["C:\\Users\\goutm\\Desktop\\angular\\gestionformationfront\\src\\app\\models\\formation.ts"],"sourcesContent":["export class Formation {\r\n}\r\n"]},"metadata":{},"sourceType":"module","externalDependencies":[]}

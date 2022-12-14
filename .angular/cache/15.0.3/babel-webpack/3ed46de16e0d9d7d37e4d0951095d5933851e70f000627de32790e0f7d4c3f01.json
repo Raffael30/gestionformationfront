@@ -1,0 +1,1 @@
+{"ast":null,"code":"export class Utilisateur {}","map":{"version":3,"mappings":"AAAA,OAAM,MAAOA,WAAW","names":["Utilisateur"],"sourceRoot":"","sources":["C:\\Users\\goutm\\Desktop\\angular\\gestionformationfront\\src\\app\\models\\utilisateur.ts"],"sourcesContent":["export class Utilisateur {\r\n}\r\n"]},"metadata":{},"sourceType":"module","externalDependencies":[]}
