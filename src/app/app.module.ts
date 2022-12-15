@@ -19,6 +19,9 @@ import { AuthentificationComponent } from './authentification/authentification.c
 import { AccueilComponent } from './components/accueil/accueil.component';
 import { GestionRendezvousComponent } from './components/rendezvous/gestion-rendezvous/gestion-rendezvous.component';
 import { ListeRendezvousComponent } from './components/rendezvous/liste-rendezvous/liste-rendezvous.component';
+import { GestionProspectComponent } from './components/prospect/gestion-prospect/gestion-prospect.component';
+import { GestionRendezvousComponent } from './rendezvous/gestion-rendezvous/gestion-rendezvous.component';
+import { ListeRendezvousComponent } from './rendezvous/liste-rendezvous/liste-rendezvous.component';
 
 
 
@@ -35,6 +38,7 @@ import { ListeRendezvousComponent } from './components/rendezvous/liste-rendezvo
     FooterComponent,
     AuthentificationComponent,
     AccueilComponent,
+    GestionProspectComponent,
     GestionRendezvousComponent,
     ListeRendezvousComponent
   ],
