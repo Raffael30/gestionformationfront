@@ -1,7 +1,4 @@
-import { Component, EventEmitter, Input, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Prospect } from 'src/app/models/prospect';
-import { ProspectService } from 'src/app/services/prospect.service';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-gestion-prospect',
@@ -10,33 +7,15 @@ import { ProspectService } from 'src/app/services/prospect.service';
 })
 export class GestionProspectComponent implements OnInit {
 
-  prospect!: Prospect;
-
   idProspect!: number;
 
-
-
-
-  constructor(private prospectService: ProspectService, private activatedRoute: ActivatedRoute) { }
+  constructor() { }
 
   ngOnInit(): void {
-    if (this.idProspect) {
-      this.prospectService.getById(this.idProspect).subscribe(response => {
-        this.prospect = response;
-      })
-    } else {
-      this.prospect = new Prospect();
-    }
   }
-
 
   getIdProspect(idProspect: number) {
     this.idProspect = idProspect;
   }
-
-
-
-
-
 
 }
