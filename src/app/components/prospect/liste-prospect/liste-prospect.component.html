@@ -32,7 +32,7 @@
                             (click)="modificationProspect(prospect.id)">Modifier </button>
                     </td>
                     <td *ngIf="connectedUser.role.nom==='admin'"><button class="btn btn-outline-danger"
-                            (click)="supprimer(prospect.id)">Supprimer</button>
+                            (click)="delete(prospect.id)">Supprimer</button>
                     </td>
                 </tr>
             </tbody>
