@@ -5,8 +5,8 @@ import { AuthentificationComponent } from './authentification/authentification.c
 import { AccueilComponent } from './components/accueil/accueil.component';
 import { GestionFormationComponent } from './components/formation/gestion-formation/gestion-formation.component';
 import { AjoutProspectComponent } from './components/prospect/ajout-prospect/ajout-prospect.component';
+import { GestionRendezvousComponent } from './components/rendezvous/gestion-rendezvous/gestion-rendezvous.component';
 import { GestionUtilisateurComponent } from './components/utilisateur/gestion-utilisateur/gestion-utilisateur.component';
-import { GestionRendezvousComponent } from './rendezvous/gestion-rendezvous/gestion-rendezvous.component';
 
 const routes : Route [] = [
   {path: '', component: AccueilComponent},
