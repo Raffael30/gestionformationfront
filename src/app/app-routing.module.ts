@@ -7,11 +7,13 @@ import { GestionFormationComponent } from './components/formation/gestion-format
 import { AjoutProspectComponent } from './components/prospect/ajout-prospect/ajout-prospect.component';
 import { GestionProspectComponent } from './components/prospect/gestion-prospect/gestion-prospect.component';
 import { GestionUtilisateurComponent } from './components/utilisateur/gestion-utilisateur/gestion-utilisateur.component';
+import { GestionRendezvousComponent } from './rendezvous/gestion-rendezvous/gestion-rendezvous.component';
 
 const routes : Route [] = [
   {path: '', component: AccueilComponent},
   {path: 'connexion', component: AuthentificationComponent},
   {path: 'utilisateurs', component: GestionUtilisateurComponent, canActivate: [AuthenticateGuard]},
+  {path: 'rendezvous', component: GestionRendezvousComponent, canActivate: [AuthenticateGuard]},
   {path: 'formations', component: GestionFormationComponent, canActivate:[AuthenticateGuard]},
   {path: 'utilisateurs/:nomRole', component: GestionUtilisateurComponent, canActivate: [AuthenticateGuard]},
   {path: 'prospects', component: GestionProspectComponent},

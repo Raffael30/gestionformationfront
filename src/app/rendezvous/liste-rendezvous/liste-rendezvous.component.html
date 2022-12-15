@@ -1,0 +1,60 @@
+<div class="container-fluid">
+    <div class="table-responsive">
+        <table class="table table-striped table-hover caption-top text-center my-4">
+
+            <caption class="text-center fs-4">Liste des rendez-vous</caption>
+            <thead>
+
+
+                <!--
+                    id!:number;
+                date!:Date;
+                commentaire!:string;
+                horaire!:Time;
+                statut!:Statut;
+                prospect!:Prospect;
+                utilisateur!:Utilisateur;
+                message!:Message;
+                -->
+
+
+                <tr>
+                    <th>Id</th>
+                    <th>Commentaire</th>
+                    <th>Date</th>
+                    <th>Horaire</th>
+                    <th>Statut</th>
+                    <th>Prospect</th>
+                    <th>Utilisateur</th>
+                    <th *ngIf="connectedUser.role.nom==='admin'">Modifier</th>
+                    <th *ngIf="connectedUser.role.nom==='admin'">Supprimer</th>
+                </tr>
+            </thead>
+            <tbody>
+
+
+                <tr *ngFor="let rendezvous of rendezvouss">
+                    <td>{{rendezvous.id}}</td>
+                    <td>{{rendezvous.commentaire}}</td>
+                    <td>{{rendezvous.date | date : 'dd/MM/yyyy'}}</td>
+                    <td>{{rendezvous.horaire | date : 'hh:mm'}}</td>
+                    <td>{{rendezvous.statut}}</td>
+                    <!-- <td>{{rendezvous.prospect.nom}}</td>
+                    <td>{{rendezvous.utilisateur.nom}}</td> -->
+
+                    <td *ngIf="connectedUser.role.nom==='admin'">
+
+                        <!--  <button class="btn btn-outline-primary"
+                            (click)="modificationRendezvous(rendezvous.id)">Modifier </button> -->
+
+
+
+                    </td>
+                    <td *ngIf="connectedUser.role.nom==='admin'"><button class="btn btn-outline-danger"
+                            (click)="supprimer(rendezvous.id)">Supprimer</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
