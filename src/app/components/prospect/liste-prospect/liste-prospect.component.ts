@@ -11,14 +11,13 @@ import { ProspectService } from 'src/app/services/prospect.service';
 })
 export class ListeProspectComponent implements OnInit {
 
-  prospects!: Prospect[];
   connectedUser!: Utilisateur;
+  prospects!: Prospect[];
   idProspect!: number;
 
-  constructor(private prospectService: ProspectService, private route: Router) { }
+  constructor(private prospectService: ProspectService) { }
 
-  @Output() appelParent = new EventEmitter<number>()
-
+  @Output() appelGestionProspect = new EventEmitter<number>()
 
   ngOnInit(): void {
     if (sessionStorage.getItem('connectedUser') != null) {
@@ -27,8 +26,6 @@ export class ListeProspectComponent implements OnInit {
     this.getAllProspects();
   }
 
-
-
   getAllProspects() {
     this.prospectService.getAll().subscribe(
       response => this.prospects = response
@@ -36,7 +33,7 @@ export class ListeProspectComponent implements OnInit {
   }
 
   modificationProspect(idProspect: number) {
-    this.appelParent.emit(idProspect);
+    this.appelGestionProspect.emit(idProspect);
   }
 
   delete(id: number) {
@@ -49,9 +46,5 @@ export class ListeProspectComponent implements OnInit {
       }
     )
   }
-
-
-
-
 
 }
