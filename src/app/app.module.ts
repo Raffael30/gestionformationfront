@@ -18,8 +18,8 @@ import { InterceptorService } from './services/interceptor.service';
 import { AuthentificationComponent } from './authentification/authentification.component';
 import { AccueilComponent } from './components/accueil/accueil.component';
 import { GestionProspectComponent } from './components/prospect/gestion-prospect/gestion-prospect.component';
-import { GestionRendezvousComponent } from './rendezvous/gestion-rendezvous/gestion-rendezvous.component';
-import { ListeRendezvousComponent } from './rendezvous/liste-rendezvous/liste-rendezvous.component';
+import { GestionRendezvousComponent } from './components/rendezvous/gestion-rendezvous/gestion-rendezvous.component';
+import { ListeRendezvousComponent } from './components/rendezvous/liste-rendezvous/liste-rendezvous.component';
 
 
 
