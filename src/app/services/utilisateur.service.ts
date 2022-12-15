@@ -17,18 +17,14 @@ export class UtilisateurService {
         return this.http.get<Utilisateur[]>(`http://localhost:8015/api/utilisateurs/roles/${nomRole}`);
     }
 
-    ajouter(utilisateur: Utilisateur) {
+    merge(utilisateur: Utilisateur) {
         return this.http.put('http://localhost:8015/api/utilisateurs', utilisateur);
     }
 
-    supprimer(id: number) {
+    delete(id: number) {
         return this.http.delete(`http://localhost:8015/api/utilisateurs/${id}`);
     }
     
-    modifier(id:number, utilisateur: Utilisateur)
-    {
-      return this.http.put(`http://localhost:8015/api/utilisateurs`, utilisateur);
-    }
 
     getById(id:number)
     {

@@ -59,8 +59,8 @@ export class ListeUtilisateurComponent {
     )
   }
 
-  supprimer(id: number) {
-    this.utilisateurService.supprimer(id).subscribe(
+  delete(id: number) {
+    this.utilisateurService.delete(id).subscribe(
       response => {
         this.getAll();
       },
@@ -69,16 +69,4 @@ export class ListeUtilisateurComponent {
       }
     )
   }
-
-  modifier(id: number) {
-    this.utilisateurService.getById(id).subscribe(
-      response => {
-        this.utilisateur = response;
-      },
-      error => {
-        console.log(error.message)
-      }
-    )
-  }
-
 }

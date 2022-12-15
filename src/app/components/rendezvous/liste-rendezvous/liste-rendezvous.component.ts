@@ -53,7 +53,7 @@ export class ListeRendezvousComponent implements OnInit {
   
   
   
-    supprimer(id: number) {
+    delete(id: number) {
       this.rendezvousService.supprimer(id).subscribe(
         response => {
           this.getAll();
@@ -64,7 +64,7 @@ export class ListeRendezvousComponent implements OnInit {
       )
     }
   
-    modifier(id: number) {
+    modificationRendezvous(id: number) {
       this.rendezvousService.getById(id).subscribe(
         response => {
           this.rendezvous = response;
