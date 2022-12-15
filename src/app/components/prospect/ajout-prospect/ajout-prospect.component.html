@@ -36,8 +36,8 @@
             <div class="mb-3">
                 <label for="idRegion" class="form-label">Région</label>
                 <select [(ngModel)]="idRegion" name="idRegion" class="form-control">
-                    <option [value]="0" disabled>---Selectionnez une région---</option>
-                    <option *ngFor="let region of regions" [value]="region.id">{{region.nom}}</option>
+                    <option [ngValue]="0" disabled>---Selectionnez une région---</option>
+                    <option *ngFor="let region of regions" [ngValue]="region.id">{{region.nom}}</option>
                 </select>
             </div>
 

@@ -17,6 +17,7 @@ import { RouterModule } from '@angular/router';
 import { InterceptorService } from './services/interceptor.service';
 import { AuthentificationComponent } from './authentification/authentification.component';
 import { AccueilComponent } from './components/accueil/accueil.component';
+import { GestionProspectComponent } from './components/prospect/gestion-prospect/gestion-prospect.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { AccueilComponent } from './components/accueil/accueil.component';
     HeaderComponent,
     FooterComponent,
     AuthentificationComponent,
-    AccueilComponent
+    AccueilComponent,
+    GestionProspectComponent,
   ],
   imports: [
     RouterModule,

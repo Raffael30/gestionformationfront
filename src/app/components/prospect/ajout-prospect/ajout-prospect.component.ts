@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Prospect } from 'src/app/models/prospect';
@@ -6,20 +6,23 @@ import { Region } from 'src/app/models/region';
 import { ProspectService } from 'src/app/services/prospect.service';
 import { RegionService } from 'src/app/services/region.service';
 import { StatutService } from 'src/app/services/statut.service';
+import { TransfertService } from 'src/app/services/transfert.service';
 
 @Component({
   selector: 'app-ajout-prospect',
   templateUrl: './ajout-prospect.component.html',
   styleUrls: ['./ajout-prospect.component.scss']
 })
-export class AjoutProspectComponent implements OnInit {
+export class AjoutProspectComponent implements OnInit, OnChanges {
 
   prospect!: Prospect;
   region!: Region;
   regions!: Region[];
   idRegion!: number;
 
-  constructor(private prospectService: ProspectService, private statutService: StatutService, private regionService: RegionService, private route: Router) { }
+  @Input() idProspect!:number;
+
+  constructor(private prospectService: ProspectService, private statutService: StatutService, private regionService: RegionService) { }
 
   addProspect() {
     this.statutService.getById(1).subscribe(
@@ -31,9 +34,7 @@ export class AjoutProspectComponent implements OnInit {
             window.location.reload();
           });
         }
-          )
-        
-        
+        )
       });
   }
 
@@ -48,6 +49,22 @@ export class AjoutProspectComponent implements OnInit {
     this.idRegion = 0;
     this.prospect = new Prospect();
     this.getAllRegions();
+
+    if (this.idProspect) {
+      this.prospectService.getById(this.idProspect).subscribe(response => {
+        this.prospect = response;
+      })
+    }
+
+  }
+
+  ngOnChanges(): void {
+    if (this.idProspect) {
+      this.prospectService.getById(this.idProspect).subscribe(response => {
+        this.prospect = response;
+        this.idRegion = this.prospect.region.id;
+      })
+    }
   }
 
   infor(f: NgForm) {
