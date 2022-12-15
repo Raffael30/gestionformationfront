@@ -38,13 +38,13 @@ export class GestionRendezvousComponent implements OnInit{
     this.utilisateur = new Utilisateur();
   }
 
-  selectUtilisateur(idUtilisateur: number) {
+  getUtilisateur(idUtilisateur: number) {
     this.utilisateurService.getById(idUtilisateur).subscribe(response => {
       this.utilisateur = response;
     })
   }
 
-  selectRendezvous(idRendezvous: number) {
+  getRendezvous(idRendezvous: number) {
     this.rendezvousService.getById(idRendezvous).subscribe(response => {
       this.rendezvous = response;
     })
@@ -54,7 +54,7 @@ export class GestionRendezvousComponent implements OnInit{
 
 
 
-  ajouter() {
+  merge() {
 
     this.rendezvousService.merge(this.rendezvous).subscribe(
       response => {

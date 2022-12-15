@@ -35,7 +35,7 @@ export class GestionUtilisateurComponent {
     this.getAllRoles();
   }
 
-  selectUtilisateur(idUtilisateur:number)
+  getUtilisateur(idUtilisateur:number)
   {
     this.utilisateurService.getById(idUtilisateur).subscribe(response=>
       {
@@ -57,7 +57,7 @@ export class GestionUtilisateurComponent {
 
 
 
-  ajouter() {
+  merge() {
     this.utilisateur.dateInscription = new Date;
     this.regionService.getById(this.idRegion).subscribe(
       response => {
@@ -65,7 +65,7 @@ export class GestionUtilisateurComponent {
         this.roleService.getById(this.idRole).subscribe(
           response => {
             this.utilisateur.role = response;
-            this.utilisateurService.ajouter(this.utilisateur).subscribe(
+            this.utilisateurService.merge(this.utilisateur).subscribe(
               response => {
                 console.log('ok')
                 window.location.reload();
@@ -79,8 +79,6 @@ export class GestionUtilisateurComponent {
         )
       }
     )
-
-
   }
 
 

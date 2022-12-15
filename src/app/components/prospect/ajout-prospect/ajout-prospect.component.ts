@@ -6,7 +6,6 @@ import { Region } from 'src/app/models/region';
 import { ProspectService } from 'src/app/services/prospect.service';
 import { RegionService } from 'src/app/services/region.service';
 import { StatutService } from 'src/app/services/statut.service';
-import { TransfertService } from 'src/app/services/transfert.service';
 
 @Component({
   selector: 'app-ajout-prospect',
@@ -24,7 +23,28 @@ export class AjoutProspectComponent implements OnInit, OnChanges {
 
   constructor(private prospectService: ProspectService, private statutService: StatutService, private regionService: RegionService) { }
 
-  addProspect() {
+  ngOnInit(): void {
+    this.idRegion = 0;
+    this.prospect = new Prospect();
+    this.getAllRegions();
+
+    if (this.idProspect) {
+      this.prospectService.getById(this.idProspect).subscribe(response => {
+        this.prospect = response;
+      })
+    }
+  }
+
+  ngOnChanges(): void {
+    if (this.idProspect) {
+      this.prospectService.getById(this.idProspect).subscribe(response => {
+        this.prospect = response;
+        this.idRegion = this.prospect.region.id;
+      })
+    }
+  }
+
+  merge() {
     this.statutService.getById(1).subscribe(
       response => {
         this.prospect.statut = response;
@@ -43,32 +63,4 @@ export class AjoutProspectComponent implements OnInit, OnChanges {
       this.regions = response
     );
   }
-
-
-  ngOnInit(): void {
-    this.idRegion = 0;
-    this.prospect = new Prospect();
-    this.getAllRegions();
-
-    if (this.idProspect) {
-      this.prospectService.getById(this.idProspect).subscribe(response => {
-        this.prospect = response;
-      })
-    }
-
-  }
-
-  ngOnChanges(): void {
-    if (this.idProspect) {
-      this.prospectService.getById(this.idProspect).subscribe(response => {
-        this.prospect = response;
-        this.idRegion = this.prospect.region.id;
-      })
-    }
-  }
-
-  infor(f: NgForm) {
-    this.addProspect();
-  }
-
 }

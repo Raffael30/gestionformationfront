@@ -13,15 +13,17 @@ export class AccueilComponent implements OnInit{
 
   constructor(private route:Router) {}
 
+  ngOnInit(): void {
+    if(sessionStorage.getItem('connectedUser') != null) {
+      this.connectedUser = JSON.parse(sessionStorage.getItem('connectedUser') ?? "") ;
+    }
+  }
+
   logout()
   {
     sessionStorage.clear();
     this.route.navigateByUrl("connexion");
   }
 
-  ngOnInit(): void {
-    if(sessionStorage.getItem('connectedUser') != null) {
-      this.connectedUser = JSON.parse(sessionStorage.getItem('connectedUser') ?? "") ;
-    }
-  }
+  
 }

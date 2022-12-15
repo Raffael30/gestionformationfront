@@ -4,7 +4,7 @@
 
 <div class="container">
 
-    <form #f="ngForm" (ngSubmit)="ajouter()">
+    <form #f="ngForm" (ngSubmit)="merge()">
 
         <fieldset>
 
@@ -75,7 +75,7 @@
 </div>
 
 
-<app-liste-utilisateur (appelUtilisateur)="selectUtilisateur($event)"></app-liste-utilisateur>
+<app-liste-utilisateur (appelUtilisateur)="getUtilisateur($event)"></app-liste-utilisateur>
 
 
 <app-footer></app-footer>

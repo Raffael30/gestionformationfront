@@ -4,19 +4,16 @@ import { Observable } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class InterceptorService implements HttpInterceptor {
+
   intercept(httpRequest: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    if ( sessionStorage.getItem('token')) {
-        let auth=sessionStorage.getItem('token')?? "";
-        httpRequest=httpRequest.clone({
-            setHeaders:{
-                Authorization: auth
-            }
-          })
-         
-       
-  
+    if (sessionStorage.getItem('token')) {
+      let auth = sessionStorage.getItem('token') ?? "";
+      httpRequest = httpRequest.clone({
+        setHeaders: {
+          Authorization: auth
+        }
+      })
     }
     return next.handle(httpRequest);
-  
   }
 }

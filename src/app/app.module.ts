@@ -20,6 +20,12 @@ import { AccueilComponent } from './components/accueil/accueil.component';
 import { GestionRendezvousComponent } from './components/rendezvous/gestion-rendezvous/gestion-rendezvous.component';
 import { ListeRendezvousComponent } from './components/rendezvous/liste-rendezvous/liste-rendezvous.component';
 import { GestionProspectComponent } from './components/prospect/gestion-prospect/gestion-prospect.component';
+import { GestionMessageComponent } from './components/message/gestion-message/gestion-message.component';
+import { ListeMessageComponent } from './components/message/liste-message/liste-message.component';
+import { AjoutMessageComponent } from './components/message/ajout-message/ajout-message.component';
+import { AjoutUtilisateurComponent } from './components/utilisateur/ajout-utilisateur/ajout-utilisateur.component';
+import { AjoutRendezvousComponent } from './components/rendezvous/ajout-rendezvous/ajout-rendezvous.component';
+import { GestionStatutComponent } from './components/statut/gestion-statut/gestion-statut.component';
 
 
 
@@ -38,7 +44,13 @@ import { GestionProspectComponent } from './components/prospect/gestion-prospect
     AccueilComponent,
     GestionProspectComponent,
     GestionRendezvousComponent,
-    ListeRendezvousComponent
+    ListeRendezvousComponent,
+    GestionMessageComponent,
+    ListeMessageComponent,
+    AjoutMessageComponent,
+    AjoutUtilisateurComponent,
+    AjoutRendezvousComponent,
+    GestionStatutComponent
   ],
   imports: [
     RouterModule,

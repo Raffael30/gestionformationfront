@@ -14,11 +14,11 @@ const routes : Route [] = [
   {path: '', component: AccueilComponent},
   {path: 'connexion', component: AuthentificationComponent},
   {path: 'utilisateurs', component: GestionUtilisateurComponent, canActivate: [AuthenticateGuard]},
+  {path: 'utilisateurs/:nomRole', component: GestionUtilisateurComponent, canActivate: [AuthenticateGuard]},
   {path: 'rendezvous', component: GestionRendezvousComponent, canActivate: [AuthenticateGuard]},
   {path: 'formations', component: GestionFormationComponent, canActivate:[AuthenticateGuard]},
-  {path: 'utilisateurs/:nomRole', component: GestionUtilisateurComponent, canActivate: [AuthenticateGuard]},
+  {path: 'messages', component:, canActivate:[AuthenticateGuard]},
   {path: 'prospects', component: GestionProspectComponent},
-  {path: 'prospects/:idProspect', component: GestionProspectComponent},
   {path: 'ajoutProspect', component: AjoutProspectComponent}
 
 
