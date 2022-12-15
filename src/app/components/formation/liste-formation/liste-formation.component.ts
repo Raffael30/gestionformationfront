@@ -1,6 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Formation } from 'src/app/models/formation';
+import { Utilisateur } from 'src/app/models/utilisateur';
 import { FormationService } from 'src/app/services/formation.service';
+import { UtilisateurService } from 'src/app/services/utilisateur.service';
 
 @Component({
   selector: 'app-liste-formation',
@@ -9,22 +12,55 @@ import { FormationService } from 'src/app/services/formation.service';
 })
 export class ListeFormationComponent implements OnInit{
 
-  id!:number
+  id!:number;
+  idFormation!:number;
+  formations!:Formation[];
 
-  formations!:Formation[]
+  formation!:Formation;
+  connectedUser!:Utilisateur;
+  utilisateur!:Utilisateur;
+  utilisateurs!:Utilisateur[]
+  nomRole!:string;
 
-  formation!:Formation
 
+  @Output() appelFormation= new EventEmitter<number>();
 
-constructor(private formationService:FormationService){}
+constructor(private formationService:FormationService,
+  private activatedRoute: ActivatedRoute,
+  private utilisateurService:UtilisateurService){}
 
 
   ngOnInit(): void {
-    this.getAllformation();
+    this.getAllFormation();
     this.formation=new Formation();
+
+    if(sessionStorage.getItem('connectedUser') != null) {
+      this.connectedUser = JSON.parse(sessionStorage.getItem('connectedUser') ?? "") ;
+    }
+    this.utilisateur = new Utilisateur();
+    this.nomRole = this.activatedRoute.snapshot.params['nomRole'];
+    if (this.nomRole) {
+      this.getAllByNomRole(this.nomRole)
+    }
+    else {
+      this.getAllFormation();
+    }
   }
 
-  getAllformation()
+  getAllByNomRole(nomRole: string) {
+    this.utilisateurService.getAllByNomRole(nomRole).subscribe(
+      response => this.utilisateurs = response
+    )
+  }
+
+  modificationFormation(idFormation:number)
+    {
+     
+      this.idFormation=idFormation;
+      this.appelFormation.emit(this.idFormation);
+    } 
+
+  getAllFormation()
   {
     this.formationService.getAll().subscribe
     (response=>this.formations=response)
@@ -39,7 +75,7 @@ constructor(private formationService:FormationService){}
   delete(id:number)
   {
     this.formationService.delete(id).subscribe
-    (response=>this.getAllformation())
+    (response=>this.getAllFormation())
   }
 
   merge(formation:Formation)
