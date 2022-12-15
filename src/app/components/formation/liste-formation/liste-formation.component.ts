@@ -42,6 +42,11 @@ constructor(private formationService:FormationService,
       this.appelFormation.emit(this.idFormation);
     } 
 
+    voirFormation(idFormation:number)
+    {
+      
+    }
+
   getAllFormation()
   {
     this.formationService.getAll().subscribe
