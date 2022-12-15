@@ -17,6 +17,8 @@ import { RouterModule } from '@angular/router';
 import { InterceptorService } from './services/interceptor.service';
 import { AuthentificationComponent } from './authentification/authentification.component';
 import { AccueilComponent } from './components/accueil/accueil.component';
+import { GestionRendezvousComponent } from './rendezvous/gestion-rendezvous/gestion-rendezvous.component';
+import { ListeRendezvousComponent } from './rendezvous/liste-rendezvous/liste-rendezvous.component';
 
 
 @NgModule({
@@ -31,7 +33,9 @@ import { AccueilComponent } from './components/accueil/accueil.component';
     HeaderComponent,
     FooterComponent,
     AuthentificationComponent,
-    AccueilComponent
+    AccueilComponent,
+    GestionRendezvousComponent,
+    ListeRendezvousComponent
   ],
   imports: [
     RouterModule,
