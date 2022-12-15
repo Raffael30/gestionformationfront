@@ -12,37 +12,22 @@ export class GestionFormationComponent implements OnInit{
   
   formation!:Formation
 
-  formations!:Formation[]
+  idFormation!:number
 
   constructor(private formationService:FormationService) { }
 
 
   ngOnInit(): void {
-    this.getAllFormation()
     this.formation=new Formation()
   }
 
-  selectFormation(idFormation:number)
+  selectFormation()
   {
-    this.formationService.getById(idFormation).subscribe(response=>
+    this.formationService.getById(this.idFormation).subscribe(response=>
       {
         this.formation=response;
       })
   }
 
-  getAllFormation()
-  {
-    this.formationService.getAll().subscribe
-    (response=>this.formations=response)
-  }
 
-  infor(f:NgForm)
-  {
-    this.formationService.merge(this.formation).subscribe
-    (response=>{
-      this.formation=new Formation()
-      this.getAllFormation()
-    })
-    f.resetForm();
-  }
 }
