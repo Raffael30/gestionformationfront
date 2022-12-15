@@ -10,26 +10,34 @@ import { UtilisateurService } from 'src/app/services/utilisateur.service';
   styleUrls: ['./ajout-formation.component.scss']
 })
 export class AjoutFormationComponent implements OnInit {
-  
-  formateurs!:Utilisateur[];
-  formation!:Formation;
 
-  constructor(private utilisateurService:UtilisateurService, private formationService:FormationService){}
-  
+  formateurs!: Utilisateur[];
+  idFormateur!: number;
+  formation!: Formation;
+
+  constructor(private utilisateurService: UtilisateurService, private formationService: FormationService) { }
+
   ngOnInit(): void {
-    this.formation= new Formation();
+    this.formation = new Formation();
+    this.getAllFormateurs();
   }
 
 
-  getAllFormateurs(nomRole: string) {
-    this.utilisateurService.getAllByNomRole(nomRole).subscribe(
+  getAllFormateurs() {
+    this.utilisateurService.getAllByNomRole("formateur").subscribe(
       response => this.formateurs = response
     )
   }
 
-  merge(formation:Formation)
-  {
-    this.formationService.merge(formation).subscribe
-    (response=>this.formation=response)
+  merge() {
+    this.utilisateurService.getById(this.idFormateur).subscribe(response => {
+      this.formation.formateur = response;
+      this.formationService.merge(this.formation).subscribe
+        (response => {
+          this.formation = response;
+          window.location.reload();
+        })
+    })
   }
+
 }

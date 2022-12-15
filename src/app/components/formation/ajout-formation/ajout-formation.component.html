@@ -31,20 +31,12 @@
                 <input type="date" class="form-control" id="dateFin" name="dateFin" [(ngModel)]="formation.dateFin" />
             </div>
 
-          
-            <div class="mb-3">
-                <label for="idRegion" class="form-label">Région</label>
-                <select [(ngModel)]="idRegion" name="idRegion" class="form-control">
-                    <option [value]="0" disabled>---Selectionnez une région---</option>
-                    <option *ngFor="let region of regions" [value]="region.id">{{region.nom}}</option>
-                </select>
-            </div>
 
             <div class="mb-3">
-                <label for="idRole" class="form-label">Role</label>
-                <select [(ngModel)]="idRole" name="idRole" class="form-control">
-                    <option [value]="0" disabled>---Selectionnez un role---</option>
-                    <option *ngFor="let role of roles" [value]="role.id">{{role.nom}}</option>
+                <label for="idFormateur" class="form-label">Formateur</label>
+                <select [(ngModel)]="idFormateur" name="idFormateur" class="form-control">
+                    <option [value]="0" disabled>---Selectionnez un formateur---</option>
+                    <option *ngFor="let formateur of formateurs" [value]="formateur.id">{{formateur.nom}} {{formateur.prenom}}</option>
                 </select>
             </div>
 

@@ -14,8 +14,9 @@
                 <th>Prix</th>
                 <th>Date de début</th>
                 <th>Date de fin</th>
-                <th>Utilisateur</th>
-                <th>Paiements</th>
+                <th>Formateur</th>
+                <th>Coût</th>
+                <th>Voir</th>
                 <th *ngIf="connectedUser.role.nom==='admin'">Modifier</th>
                 <th *ngIf="connectedUser.role.nom==='admin'">Supprimer</th>
             </tr>
@@ -30,13 +31,13 @@
                 <td>{{formation.prix}}</td>
                 <td>{{formation.dateDebut | date : 'dd/MM/yyyy'}}</td>
                 <td>{{formation.dateFin| date : 'dd/MM/yyyy'}}</td>
-              <!--    <td>{{formation.utilisateur.prenom + " " + formation.utilisateur.nom}}</td>-->
-            <!--    <td>{{formation.paiement.montant }}</td>-->
-
+                <td>{{formation.formateur.prenom + " " + formation.formateur.nom}}</td>
+               <td>{{formation.prix }} €</td>
+                <td><button class="btn btn-outline-primary" (click)="voirFormation(formation.id)" >Voir  </button></td>
             <td *ngIf="connectedUser.role.nom==='admin'">
                 <button class="btn btn-outline-primary" (click)="modificationFormation(formation.id)" >Modifier  </button>
 
-              <!--   <td><button class="btn btn-outline-primary" (click)="getById(formation.id)">Modifier</button></td> -->
+              
 
               <td *ngIf="connectedUser.role.nom==='admin'"><button class="btn btn-outline-danger"
                 (click)="delete(formation.id)">Supprimer</button>
