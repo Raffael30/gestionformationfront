@@ -17,6 +17,7 @@ import { RouterModule } from '@angular/router';
 import { InterceptorService } from './services/interceptor.service';
 import { AuthentificationComponent } from './authentification/authentification.component';
 import { AccueilComponent } from './components/accueil/accueil.component';
+
 import { GestionRendezvousComponent } from './components/rendezvous/gestion-rendezvous/gestion-rendezvous.component';
 import { ListeRendezvousComponent } from './components/rendezvous/liste-rendezvous/liste-rendezvous.component';
 import { GestionProspectComponent } from './components/prospect/gestion-prospect/gestion-prospect.component';
@@ -26,6 +27,7 @@ import { AjoutMessageComponent } from './components/message/ajout-message/ajout-
 import { AjoutUtilisateurComponent } from './components/utilisateur/ajout-utilisateur/ajout-utilisateur.component';
 import { AjoutRendezvousComponent } from './components/rendezvous/ajout-rendezvous/ajout-rendezvous.component';
 import { GestionStatutComponent } from './components/statut/gestion-statut/gestion-statut.component';
+import { AjoutFormationComponent } from './components/formation/ajout-formation/ajout-formation.component';
 
 
 
@@ -50,7 +52,9 @@ import { GestionStatutComponent } from './components/statut/gestion-statut/gesti
     AjoutMessageComponent,
     AjoutUtilisateurComponent,
     AjoutRendezvousComponent,
-    GestionStatutComponent
+    GestionStatutComponent,
+    AjoutFormationComponent
+
   ],
   imports: [
     RouterModule,

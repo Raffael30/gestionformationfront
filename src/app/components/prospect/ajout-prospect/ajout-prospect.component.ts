@@ -1,6 +1,4 @@
 import { Component, Input, OnChanges, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
-import { Router } from '@angular/router';
 import { Prospect } from 'src/app/models/prospect';
 import { Region } from 'src/app/models/region';
 import { ProspectService } from 'src/app/services/prospect.service';
@@ -15,7 +13,6 @@ import { StatutService } from 'src/app/services/statut.service';
 export class AjoutProspectComponent implements OnInit, OnChanges {
 
   prospect!: Prospect;
-  region!: Region;
   regions!: Region[];
   idRegion!: number;
 
@@ -27,12 +24,6 @@ export class AjoutProspectComponent implements OnInit, OnChanges {
     this.idRegion = 0;
     this.prospect = new Prospect();
     this.getAllRegions();
-
-    if (this.idProspect) {
-      this.prospectService.getById(this.idProspect).subscribe(response => {
-        this.prospect = response;
-      })
-    }
   }
 
   ngOnChanges(): void {

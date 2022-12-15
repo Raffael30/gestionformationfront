@@ -1,0 +1,51 @@
+<div class="container">
+
+    <form #f="ngForm" (ngSubmit)="merge()">
+
+        <fieldset>
+
+            <legend class="text-center">Gestion des formations</legend>
+
+            <div class="mb-3">
+                <label for="nom">Nom</label>
+                <input type="text" class="form-control" id="nom" name="nom" [(ngModel)]="formation.nom" />
+            </div>
+
+            <div class="mb-3">
+                <label for="lieu">Lieu</label>
+                <input type="text" class="form-control" id="lieu" name="lieu" [(ngModel)]="formation.lieu" />
+            </div>
+
+            <div class="mb-3">
+                <label for="prix">Prix</label>
+                <input type="text" class="form-control" id="prix" name="prix" [(ngModel)]="formation.prix" />
+            </div>
+
+            <div class="mb-3">
+                <label for="dateDebut">Date Début</label>
+                <input type="date" class="form-control" id="dateDebut" name="dateDebut" [(ngModel)]="formation.dateDebut" />
+            </div>
+
+            <div class="mb-3">
+                <label for="dateFin">Date Fin</label>
+                <input type="date" class="form-control" id="dateFin" name="dateFin" [(ngModel)]="formation.dateFin" />
+            </div>
+
+
+            <div class="mb-3">
+                <label for="idFormateur" class="form-label">Formateur</label>
+                <select [(ngModel)]="idFormateur" name="idFormateur" class="form-control">
+                    <option [value]="0" disabled>---Selectionnez un formateur---</option>
+                    <option *ngFor="let formateur of formateurs" [value]="formateur.id">{{formateur.nom}} {{formateur.prenom}}</option>
+                </select>
+            </div>
+
+            <div class="mb-3 text-center">
+                <input class="btn btn-primary" type="submit" value="Ajouter" />
+            </div>
+
+        </fieldset>
+
+    </form>
+
+</div>

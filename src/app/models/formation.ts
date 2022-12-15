@@ -12,6 +12,6 @@ export class Formation {
 
     utilisateurs!:Utilisateur[]
     paiements!:Paiement[]
-    
+    formateur!:Utilisateur
 
 }
