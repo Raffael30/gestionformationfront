@@ -34,12 +34,11 @@
                 <td>{{formation.formateur.prenom + " " + formation.formateur.nom}}</td>
                <td>{{formation.prix }} €</td>
                 <td><button class="btn btn-outline-primary" (click)="voirFormation(formation.id)" >Voir  </button></td>
-            <td *ngIf="connectedUser.role.nom==='admin'">
+            
+                <td *ngIf="connectedUser.role.nom==='admin'">
                 <button class="btn btn-outline-primary" (click)="modificationFormation(formation.id)" >Modifier  </button>
 
-              
-
-              <td *ngIf="connectedUser.role.nom==='admin'"><button class="btn btn-outline-danger"
+                <td *ngIf="connectedUser.role.nom==='admin'"><button class="btn btn-outline-danger"
                 (click)="delete(formation.id)">Supprimer</button>
                 </td>
             </tr>

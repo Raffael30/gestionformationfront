@@ -1,6 +1,5 @@
 <app-header></app-header>
-<app-ajout-formation ></app-ajout-formation>
+<app-ajout-formation [idFormation]="idFormation"></app-ajout-formation>
 
-
-<app-liste-formation ></app-liste-formation>
+<app-liste-formation (appelGestionFormation)="getIdFormation($event)"></app-liste-formation>
 <app-footer></app-footer>

@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Formation } from 'src/app/models/formation';
 import { Utilisateur } from 'src/app/models/utilisateur';
 import { FormationService } from 'src/app/services/formation.service';
-import { UtilisateurService } from 'src/app/services/utilisateur.service';
+
 
 @Component({
   selector: 'app-liste-formation',
@@ -22,10 +22,9 @@ export class ListeFormationComponent implements OnInit{
  
 
 
-  @Output() appelFormation= new EventEmitter<number>();
+  @Output() appelGestionFormation= new EventEmitter<number>();
 
-constructor(private formationService:FormationService,
-  private utilisateurService:UtilisateurService){}
+constructor(private formationService:FormationService){}
 
 
   ngOnInit(): void {
@@ -39,7 +38,7 @@ constructor(private formationService:FormationService,
   modificationFormation(idFormation:number)
     {
       this.idFormation=idFormation;
-      this.appelFormation.emit(this.idFormation);
+      this.appelGestionFormation.emit(this.idFormation);
     } 
 
     voirFormation(idFormation:number)
@@ -56,7 +55,7 @@ constructor(private formationService:FormationService,
   delete(id:number)
   {
     this.formationService.delete(id).subscribe
-    (response=>this.getAllFormation())
+    (response=>this.getAllFormation());
   }
 
  
