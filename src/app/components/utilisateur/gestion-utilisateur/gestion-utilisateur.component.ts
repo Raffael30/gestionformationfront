@@ -1,86 +1,50 @@
-import { Component } from '@angular/core';
-import { Region } from 'src/app/models/region';
-import { Role } from 'src/app/models/role';
+import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Utilisateur } from 'src/app/models/utilisateur';
-import { RegionService } from 'src/app/services/region.service';
-import { RoleService } from 'src/app/services/role.service';
-import { UtilisateurService } from 'src/app/services/utilisateur.service';
 
 @Component({
   selector: 'app-gestion-utilisateur',
   templateUrl: './gestion-utilisateur.component.html',
   styleUrls: ['./gestion-utilisateur.component.scss']
 })
-export class GestionUtilisateurComponent {
+export class GestionUtilisateurComponent implements OnInit {
 
-  utilisateurs!: Utilisateur[];
-  utilisateur!: Utilisateur;
-  roles!: Role[];
-  role!: Role;
-  idRole!: number;
-  region!: Region;
-  idRegion!: number;
-  regions!: Region[];
-  idUtilisateur!:number;
+  idUtilisateur!: number;
+  idProspect!:number;
+  nomRole!:string;
+  affichageFormulaire!:boolean;
+  affichageUtilisateurs!:boolean;
+  affichageProspects!:boolean;
 
-  constructor(private utilisateurService: UtilisateurService, private roleService: RoleService, private regionService: RegionService) { }
+  constructor(private activatedRoute:ActivatedRoute) { }
 
   ngOnInit(): void {
-
-    this.idRole = 0;
-    this.idRegion = 0;
-    
-    this.utilisateur = new Utilisateur();
-    this.getAllRegions();
-    this.getAllRoles();
+    this.nomRole = this.activatedRoute.snapshot.params['nomRole'];
+    if (this.nomRole == undefined) {
+      this.affichageFormulaire = true;
+      this.affichageUtilisateurs = true;
+      this.affichageProspects = false;
+    } else {
+      this.affichageFormulaire = false;
+      this.affichageUtilisateurs = true;
+    }
   }
 
-  getUtilisateur(idUtilisateur:number)
-  {
-    this.utilisateurService.getById(idUtilisateur).subscribe(response=>
-      {
-        this.utilisateur=response;
-      })
+  showUtilisateurs(){
+    this.affichageUtilisateurs = true;
+    this.affichageProspects = false;
   }
 
-  getAllRegions() {
-    this.regionService.getAll().subscribe(response =>
-      this.regions = response
-    );
+  showProspects(){
+    this.affichageUtilisateurs = false;
+    this.affichageProspects = true;
   }
 
-  getAllRoles() {
-    this.roleService.getAll().subscribe(response =>
-      this.roles = response
-    );
+  getIdUtilisateur(idUtilisateur: number) {
+    this.idUtilisateur = idUtilisateur;
   }
 
-
-
-  merge() {
-    this.utilisateur.dateInscription = new Date;
-    this.regionService.getById(this.idRegion).subscribe(
-      response => {
-        this.utilisateur.region = response;
-        this.roleService.getById(this.idRole).subscribe(
-          response => {
-            this.utilisateur.role = response;
-            this.utilisateurService.merge(this.utilisateur).subscribe(
-              response => {
-                console.log('ok')
-                window.location.reload();
-              },
-              error => {
-                console.log('non ok')
-                console.log(error.message)
-              }
-            )
-          }
-        )
-      }
-    )
+  getIdProspect(idProspect: number) {
+    this.idProspect = idProspect;
   }
-
-
-
 }

@@ -1,17 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-gestion-prospect',
   templateUrl: './gestion-prospect.component.html',
   styleUrls: ['./gestion-prospect.component.scss']
 })
-export class GestionProspectComponent implements OnInit {
+export class GestionProspectComponent implements OnInit, OnChanges {
 
   idProspect!: number;
 
-  constructor() { }
+  constructor(private activatedRoute:ActivatedRoute) { }
+
+  ngOnChanges(): void {
+
+  }
 
   ngOnInit(): void {
+
   }
 
   getIdProspect(idProspect: number) {
