@@ -32,7 +32,7 @@ export class AuthentificationComponent implements OnInit {
       this.authentificationService.findByUsername(this.username).subscribe(response2 => {
         this.connectedUser = response2;
         sessionStorage.setItem('connectedUser', JSON.stringify(this.connectedUser));
-        this.route.navigateByUrl("/utilisateurs");
+        this.route.navigateByUrl("/profil");
       })
 
     },

@@ -1,1 +1,81 @@
-<p>ajout-utilisateur works!</p>
+<h1 class="text-center">Utilisateur</h1>
+
+<div class="container">
+
+    <form #f="ngForm" (ngSubmit)="merge()">
+
+        <fieldset class="row">
+
+            <legend class="text-center">Informations de l'utilisateur</legend>
+
+            <div *ngIf="voirMotDePasse" class="my-3 form-floating col-md-6">
+                <input type="text" class="form-control" id="nom" name="nom" [(ngModel)]="utilisateur.nom"
+                    placeholder=" " />
+                <label class="form-label ms-2" for="nom">Nom</label>
+            </div>
+
+            <div class="my-3 form-floating col-md-6">
+                <input type="text" class="form-control" id="prenom" name="prenom" [(ngModel)]="utilisateur.prenom"
+                    placeholder=" " />
+                <label class="form-label ms-2" for="prenom">Prenom</label>
+            </div>
+
+            <div class="my-3 form-floating col-md-6">
+                <input type="text" class="form-control" id="username" name="username" [(ngModel)]="utilisateur.username"
+                    placeholder=" " />
+                <label class="form-label ms-2" for="username">Nom d'utilisateur</label>
+            </div>
+
+            <div *ngIf="voirMotDePasse" class="my-3 form-floating col-md-6">
+                <input type="password" class="form-control" id="password" name="password"
+                    [(ngModel)]="utilisateur.password" placeholder=" " />
+                <label class="form-label ms-2" for="password">Mot de passe</label>
+            </div>
+
+            <div class="my-3 form-floating col-md-6">
+                <input type="email" class="form-control" id="email" name="email" [(ngModel)]="utilisateur.email"
+                    placeholder=" " />
+                <label class="form-label ms-2" for="email">Adresse email</label>
+            </div>
+
+            <div class="my-3 form-floating col-md-6">
+                <input type="telephone" class="form-control" id="telephone" name="telephone"
+                    [(ngModel)]="utilisateur.telephone" placeholder=" " />
+                <label class="form-label ms-2" for="telephone">Telephone</label>
+            </div>
+
+            <div class="my-3 form-floating col-md-6">
+                <input type="adresse" class="form-control" id="adresse" name="adresse" [(ngModel)]="utilisateur.adresse"
+                    placeholder=" " />
+                <label class="form-label ms-2" for="adresse">Adresse postale</label>
+            </div>
+
+            <div class="my-3 form-floating col-md-6">
+                <select [(ngModel)]="idRegion" name="idRegion" class="form-select" placeholder=" ">
+                    <option [value]="0" disabled>---Selectionnez une région---</option>
+                    <option *ngFor="let region of regions" [value]="region.id">{{region.nom}}</option>
+                </select>
+                <label for="idRegion" class="form-label ms-2">Région</label>
+            </div>
+
+            <div class="my-3 form-floating col-md-6">
+                <select [(ngModel)]="idRole" name="idRole" class="form-select">
+                    <option [value]="0" disabled>---Selectionnez un role---</option>
+                    <option *ngFor="let role of roles" [value]="role.id">{{role.nom}}</option>
+                </select>
+                <label for="idRole" class="form-label ms-2">Role</label>
+            </div>
+
+
+            <div class="my-3 text-center">
+                <input class="btn btn-primary" type="submit" value="Envoyer" />
+            </div>
+            <div class="my-3 text-center">
+                <input class="btn btn-secondary" (click)="reset()" value="Reset" />
+            </div>
+
+        </fieldset>
+
+    </form>
+
+</div>

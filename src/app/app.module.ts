@@ -28,7 +28,12 @@ import { AjoutUtilisateurComponent } from './components/utilisateur/ajout-utilis
 import { AjoutRendezvousComponent } from './components/rendezvous/ajout-rendezvous/ajout-rendezvous.component';
 import { GestionStatutComponent } from './components/statut/gestion-statut/gestion-statut.component';
 import { AjoutFormationComponent } from './components/formation/ajout-formation/ajout-formation.component';
+
 import { DetailFormationComponent } from './components/formation/detail-formation/detail-formation.component';
+import { GestionProfilComponent } from './components/profil/gestion-profil/gestion-profil.component';
+import { InformationsComponent } from './components/profil/informations/informations.component';
+import { MotDePasseComponent } from './components/profil/mot-de-passe/mot-de-passe.component';
+
 
 
 
@@ -56,6 +61,9 @@ import { DetailFormationComponent } from './components/formation/detail-formatio
     GestionStatutComponent,
     AjoutFormationComponent,
     DetailFormationComponent
+    GestionProfilComponent,
+    InformationsComponent,
+    MotDePasseComponent
 
   ],
   imports: [

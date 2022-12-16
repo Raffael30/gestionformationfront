@@ -17,6 +17,10 @@ export class StatutService {
     return this.http.get<Statut[]>('http://localhost:8015/api/statuts');
   }
 
+  getAllByType(type: string, general: string){
+    return this.http.get<Statut[]>(`http://localhost:8015/api/statuts/type/${type}/general/${general}`);
+  }
+
   merge(statut: Statut) {
     return this.http.post<Statut>('http://localhost:8015/api/statuts', statut);
   }

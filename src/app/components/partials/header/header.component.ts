@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { Utilisateur } from 'src/app/models/utilisateur';
 
@@ -24,4 +24,5 @@ export class HeaderComponent implements OnInit {
     sessionStorage.clear();
     this.route.navigateByUrl("connexion");
   }
+
 }

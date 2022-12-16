@@ -1,82 +1,20 @@
 <app-header></app-header>
 
-<h1 class="text-center">Utilisateur</h1>
+<app-ajout-utilisateur *ngIf="affichageFormulaire" [idUtilisateur]="idUtilisateur" [idProspect]="idProspect"></app-ajout-utilisateur>
 
-<div class="container">
-
-    <form #f="ngForm" (ngSubmit)="merge()">
-
-        <fieldset>
-
-            <legend class="text-center">Informations de l'utilisateur</legend>
-
-            <div class="mb-3">
-                <label for="nom">Nom</label>
-                <input type="text" class="form-control" id="nom" name="nom" [(ngModel)]="utilisateur.nom" />
-            </div>
-
-            <div class="mb-3">
-                <label for="prenom">Prenom</label>
-                <input type="text" class="form-control" id="prenom" name="prenom" [(ngModel)]="utilisateur.prenom" />
-            </div>
-
-            <div class="mb-3">
-                <label for="username">Nom d'utilisateur</label>
-                <input type="text" class="form-control" id="username" name="username"
-                    [(ngModel)]="utilisateur.username" />
-            </div>
-
-            <div class="mb-3">
-                <label for="password">Mot de passe</label>
-                <input type="password" class="form-control" id="password" name="password"
-                    [(ngModel)]="utilisateur.password" />
-            </div>
-
-            <div class="mb-3">
-                <label for="email">Adresse email</label>
-                <input type="email" class="form-control" id="email" name="email" [(ngModel)]="utilisateur.email" />
-            </div>
-
-            <div class="mb-3">
-                <label for="telephone">Telephone</label>
-                <input type="telephone" class="form-control" id="telephone" name="telephone" [(ngModel)]="utilisateur.telephone" />
-            </div>
-
-            <div class="mb-3">
-                <label for="adresse">Adresse postale</label>
-                <input type="adresse" class="form-control" id="adresse" name="adresse"
-                    [(ngModel)]="utilisateur.adresse" />
-            </div>
-
-            <div class="mb-3">
-                <label for="idRegion" class="form-label">Région</label>
-                <select [(ngModel)]="idRegion" [(ngModel)]="utilisateur.region" name="idRegion" class="form-control">
-                    <option [value]="0" disabled>---Selectionnez une région---</option>
-                    <option *ngFor="let region of regions" [value]="region.id">{{region.nom}}</option>
-                </select>
-            </div>
-
-            <div class="mb-3">
-                <label for="idRole" class="form-label">Role</label>
-                <select [(ngModel)]="idRole" name="idRole" class="form-control">
-                    <option [value]="0" disabled>---Selectionnez un role---</option>
-                    <option *ngFor="let role of roles" [value]="role.id">{{role.nom}}</option>
-                </select>
-            </div>
-
-
-            <div class="mb-3 text-center">
-                <input class="btn btn-primary" type="submit" value="Envoyer" />
-            </div>
-
-        </fieldset>
-
-    </form>
-
+<div *ngIf="affichageFormulaire" class="container mt-5">
+    <div class="row text-center">
+        <div class="col-md-6">
+            <button class="btn btn-primary" (click)="showUtilisateurs()">Utilisateurs</button>
+        </div>
+        <div class="col-md-6">
+            <button class="btn btn-primary" (click)="showProspects()">Prospects</button>
+        </div>
+    </div>
 </div>
 
+<app-liste-utilisateur *ngIf="affichageUtilisateurs" (appelGestionUtilisateur)="getIdUtilisateur($event)"></app-liste-utilisateur>
 
-<app-liste-utilisateur (appelUtilisateur)="getUtilisateur($event)"></app-liste-utilisateur>
-
+<app-liste-prospect *ngIf="affichageProspects" (appelGestionProspect)="getIdProspect($event)"></app-liste-prospect>
 
 <app-footer></app-footer>
