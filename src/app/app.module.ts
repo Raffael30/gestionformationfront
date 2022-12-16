@@ -60,7 +60,7 @@ import { MotDePasseComponent } from './components/profil/mot-de-passe/mot-de-pas
     AjoutRendezvousComponent,
     GestionStatutComponent,
     AjoutFormationComponent,
-    DetailFormationComponent
+    DetailFormationComponent,
     GestionProfilComponent,
     InformationsComponent,
     MotDePasseComponent
