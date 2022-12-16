@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+
 import { Formation } from 'src/app/models/formation';
+import { Utilisateur } from 'src/app/models/utilisateur';
 import { FormationService } from 'src/app/services/formation.service';
+import { UtilisateurService } from 'src/app/services/utilisateur.service';
 
 @Component({
   selector: 'app-gestion-formation',
@@ -10,24 +12,37 @@ import { FormationService } from 'src/app/services/formation.service';
 })
 export class GestionFormationComponent implements OnInit{
   
-  formation!:Formation
+  formation!:Formation;
 
-  idFormation!:number
+  idFormation!:number;
 
-  constructor(private formationService:FormationService) { }
+  formateurs!:Utilisateur[];
+  utilisateurs!:Utilisateur[];
+
+  constructor(private formationService:FormationService,private utilisateurService:UtilisateurService, private formateurService:UtilisateurService) { }
 
 
   ngOnInit(): void {
-    this.formation=new Formation()
+    this.formation=new Formation();
   }
 
-  selectFormation()
+  getIdFormation(idFormation:number)
   {
+    this.idFormation=idFormation;
     this.formationService.getById(this.idFormation).subscribe(response=>
       {
         this.formation=response;
       })
   }
 
+  getAllFormateurs(){
+    this.formateurService.getAllByNomRole("formateur").subscribe(response=>
+      this.formateurs=response);
+  }
 
+  getAllUtilisateurs()
+  {
+    this.utilisateurService.getAllByNomRole("participant").subscribe(response=>
+      this.utilisateurs=response);
+  }
 }

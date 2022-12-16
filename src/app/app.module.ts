@@ -28,6 +28,7 @@ import { AjoutUtilisateurComponent } from './components/utilisateur/ajout-utilis
 import { AjoutRendezvousComponent } from './components/rendezvous/ajout-rendezvous/ajout-rendezvous.component';
 import { GestionStatutComponent } from './components/statut/gestion-statut/gestion-statut.component';
 import { AjoutFormationComponent } from './components/formation/ajout-formation/ajout-formation.component';
+import { DetailFormationComponent } from './components/formation/detail-formation/detail-formation.component';
 
 
 
@@ -53,7 +54,8 @@ import { AjoutFormationComponent } from './components/formation/ajout-formation/
     AjoutUtilisateurComponent,
     AjoutRendezvousComponent,
     GestionStatutComponent,
-    AjoutFormationComponent
+    AjoutFormationComponent,
+    DetailFormationComponent
 
   ],
   imports: [
