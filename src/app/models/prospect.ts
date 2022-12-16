@@ -9,6 +9,6 @@ export class Prospect {
     email!:string;
     telephone!:string;
     region!:Region;
-    adresse!:String;
+    adresse!:string;
     statut!:Statut;   
 }

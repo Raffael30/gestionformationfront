@@ -13,6 +13,7 @@
                     <th>Email</th>
                     <th>Telephone</th>
                     <th>Region</th>
+                    <th>Statut</th>
                     <th *ngIf="connectedUser.role.nom==='admin'">Modifier</th>
                     <th *ngIf="connectedUser.role.nom==='admin'">Supprimer</th>
                 </tr>
@@ -27,6 +28,7 @@
                     <td>{{prospect.email}}</td>
                     <td>{{prospect.telephone}}</td>
                     <td>{{prospect.region.nom}}</td>
+                    <td>{{prospect.statut.nom}}</td>
                     <td *ngIf="connectedUser.role.nom==='admin'">
                         <button class="btn btn-outline-primary"
                             (click)="modificationProspect(prospect.id)">Modifier </button>
