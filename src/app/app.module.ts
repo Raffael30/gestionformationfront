@@ -29,6 +29,9 @@ import { AjoutRendezvousComponent } from './components/rendezvous/ajout-rendezvo
 import { GestionStatutComponent } from './components/statut/gestion-statut/gestion-statut.component';
 import { AjoutFormationComponent } from './components/formation/ajout-formation/ajout-formation.component';
 
+import { DetailFormationComponent } from './components/formation/detail-formation/detail-formation.component';
+
+
 
 
 @NgModule({
@@ -53,7 +56,11 @@ import { AjoutFormationComponent } from './components/formation/ajout-formation/
     AjoutUtilisateurComponent,
     AjoutRendezvousComponent,
     GestionStatutComponent,
-    AjoutFormationComponent
+    AjoutFormationComponent,
+    DetailFormationComponent
+    GestionProfilComponent,
+    InformationsComponent,
+    MotDePasseComponent
 
   ],
   imports: [
