@@ -8,7 +8,6 @@ export class Rendezvous {
 
 
     id!:number;
-    date!:Date;
     commentaire!:string;
     horaire!:Date;
     statut!:Statut;
