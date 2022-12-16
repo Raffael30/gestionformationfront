@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Utilisateur } from 'src/app/models/utilisateur';
 import { UtilisateurService } from 'src/app/services/utilisateur.service';
@@ -8,7 +8,7 @@ import { UtilisateurService } from 'src/app/services/utilisateur.service';
   templateUrl: './liste-utilisateur.component.html',
   styleUrls: ['./liste-utilisateur.component.scss']
 })
-export class ListeUtilisateurComponent {
+export class ListeUtilisateurComponent implements OnInit, OnChanges {
 
 
   utilisateurs!: Utilisateur[];
@@ -16,17 +16,16 @@ export class ListeUtilisateurComponent {
   connectedUser!: Utilisateur;
   nomRole!: string;
   utilisateurSelected!: Utilisateur;
-  
+
   idRole!: number;
   idRegion!: number;
   idUtilisateur!: number;
 
 
-  constructor(private utilisateurService: UtilisateurService,
-    private activatedRoute: ActivatedRoute) { }
+  constructor(private utilisateurService: UtilisateurService, private activatedRoute: ActivatedRoute) { }
 
 
-  @Output() appelUtilisateur = new EventEmitter<number>();
+  @Output() appelGestionUtilisateur = new EventEmitter<number>()
 
   ngOnInit(): void {
     if (sessionStorage.getItem('connectedUser') != null) {
@@ -42,9 +41,19 @@ export class ListeUtilisateurComponent {
     }
   }
 
+  ngOnChanges(): void {
+    this.nomRole = this.activatedRoute.snapshot.params['nomRole'];
+    if (this.nomRole) {
+      this.getAllByNomRole(this.nomRole)
+    }
+    else {
+      this.getAll();
+    }
+  }
+
+
   modificationUtilisateur(idUtilisateur: number) {
-    this.idUtilisateur = idUtilisateur;
-    this.appelUtilisateur.emit(this.idUtilisateur);
+    this.appelGestionUtilisateur.emit(idUtilisateur);
   }
 
   getAll() {
