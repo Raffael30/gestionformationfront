@@ -57,7 +57,7 @@ import { DetailFormationComponent } from './components/formation/detail-formatio
     AjoutRendezvousComponent,
     GestionStatutComponent,
     AjoutFormationComponent,
-    DetailFormationComponent
+    DetailFormationComponent,
     GestionProfilComponent,
     InformationsComponent,
     MotDePasseComponent
