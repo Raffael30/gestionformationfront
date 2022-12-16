@@ -1,1 +1,50 @@
-<p>ajout-rendezvous works!</p>
+<h1 class="text-center">Rendez-vous</h1>
+
+<div class="container">
+
+    <form #f="ngForm" (ngSubmit)="merge()">
+
+        <fieldset>
+
+            <legend class="text-center">Informations du rendez-vous</legend>
+
+
+            <div class="mb-3">
+                <label for="horaire">Date</label>
+                <input type="datetime-local" class="form-control" id="horaire" name="horaire" [(ngModel)]="rendezvous.horaire" />
+            </div> 
+
+            <div class="mb-3">
+                <label for="commentaire">Commentaire</label>
+                <input type="text" class="form-control" id="commentaire" name="commentaire"
+                    [(ngModel)]="rendezvous.commentaire" />
+            </div>
+
+           
+                <label for="idStatut" class="form-label">Statut</label>
+                <select [(ngModel)]="idStatut" name="idStatut" class="form-control">
+                    <option [value]="0" disabled>---Selectionnez un statut---</option>
+                    <option *ngFor="let statut of statuts" [value]="statut.id">{{statut.nom}}</option>
+                </select>
+
+                <label for="idProspect" class="form-label">Prospect</label>
+                <select [(ngModel)]="idProspect" name="idProspect" class="form-control">
+                    <option [value]="0" disabled>---Selectionnez un prospect---</option>
+                    <option *ngFor="let prospect of prospects" [value]="prospect.id">{{prospect.prenom}} {{prospect.nom}}</option>
+                </select>
+
+                <label for="idUtilisateur" class="form-label">Utilisateur</label>
+                <select [(ngModel)]="idUtilisateur" name="idUtilisateur" class="form-control">
+                    <option [value]="0" disabled>---Selectionnez un utilisateur---</option>
+                    <option *ngFor="let utilisateur of utilisateurs" [value]="utilisateur.id">{{utilisateur.prenom}} {{utilisateur.nom}}</option>
+                </select>
+
+            <div class="mb-3 text-center">
+                <input class="btn btn-primary" type="submit" value="Envoyer" />
+            </div>
+
+        </fieldset>
+
+    </form>
+
+</div>

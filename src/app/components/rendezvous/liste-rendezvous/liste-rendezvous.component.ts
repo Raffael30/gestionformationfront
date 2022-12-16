@@ -35,12 +35,6 @@ export class ListeRendezvousComponent implements OnInit {
   
     }
   
-   /*  modificationRendezvous(idRendezvous: number)
-      {
-       
-        this.idRendezvous = idRendezvous;
-        this.appelUtilisateur.emit(this.idUtilisateur);
-      } */
   
     getAll() {
       this.rendezvousService.getAll().subscribe(

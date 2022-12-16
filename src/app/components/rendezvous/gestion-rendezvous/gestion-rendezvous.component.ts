@@ -4,6 +4,7 @@ import { Rendezvous } from 'src/app/models/rendezvous';
 import { Statut } from 'src/app/models/statut';
 import { Utilisateur } from 'src/app/models/utilisateur';
 import { RendezvousService } from 'src/app/services/rendezvous.service';
+import { StatutService } from 'src/app/services/statut.service';
 import { UtilisateurService } from 'src/app/services/utilisateur.service';
 
 @Component({
@@ -21,19 +22,22 @@ export class GestionRendezvousComponent implements OnInit{
   prospect!: Prospect;
   idProspect!: number;
 
+
   idStatut!: number;
   statut!: Statut;
   statuts!: Statut[];
 
 
 
-  constructor(private utilisateurService: UtilisateurService, private rendezvousService: RendezvousService) { }
+  constructor(private utilisateurService: UtilisateurService, private rendezvousService: RendezvousService, private statutService : StatutService) { }
 
   ngOnInit(): void {
 
     this.idUtilisateur = 0;
     this.idProspect = 0;
+    this.idStatut = 0;
 
+    this.getAllStatutsByType();
     this.rendezvous = new Rendezvous();
     this.utilisateur = new Utilisateur();
   }
@@ -47,6 +51,12 @@ export class GestionRendezvousComponent implements OnInit{
   getRendezvous(idRendezvous: number) {
     this.rendezvousService.getById(idRendezvous).subscribe(response => {
       this.rendezvous = response;
+    })
+  }
+
+  getAllStatutsByType(){
+    this.statutService.getAllByType('rendezvous', 'general').subscribe(response => {
+      this.statuts = response;
     })
   }
  
