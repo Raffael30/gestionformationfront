@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Utilisateur } from 'src/app/models/utilisateur';
 
 @Component({
@@ -12,11 +12,14 @@ export class GestionUtilisateurComponent implements OnInit {
   idUtilisateur!: number;
   idProspect!:number;
   nomRole!:string;
+  titrePage!:string;
   affichageFormulaire!:boolean;
   affichageUtilisateurs!:boolean;
   affichageProspects!:boolean;
 
-  constructor(private activatedRoute:ActivatedRoute) { }
+  constructor(private activatedRoute:ActivatedRoute, private route:Router) { 
+    this.route.routeReuseStrategy.shouldReuseRoute = () => false;
+  }
 
   ngOnInit(): void {
     this.nomRole = this.activatedRoute.snapshot.params['nomRole'];
@@ -24,6 +27,7 @@ export class GestionUtilisateurComponent implements OnInit {
       this.affichageFormulaire = true;
       this.affichageUtilisateurs = true;
       this.affichageProspects = false;
+      this.nomRole = 'Utilisateur';
     } else {
       this.affichageFormulaire = false;
       this.affichageUtilisateurs = true;

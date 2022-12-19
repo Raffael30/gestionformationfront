@@ -36,6 +36,7 @@ import { MotDePasseComponent } from './components/profil/mot-de-passe/mot-de-pas
 import { AjoutPaiementComponent } from './components/paiement/ajout-paiement/ajout-paiement.component';
 import { GestionPaiementComponent } from './components/paiement/gestion-paiement/gestion-paiement.component';
 import { ListePaiementComponent } from './components/paiement/liste-paiement/liste-paiement.component';
+import { VoirUtilisateurComponent } from './components/utilisateur/voir-utilisateur/voir-utilisateur.component';
 
 
 
@@ -67,10 +68,10 @@ import { ListePaiementComponent } from './components/paiement/liste-paiement/lis
     GestionProfilComponent,
     InformationsComponent,
     MotDePasseComponent,
+    VoirUtilisateurComponent,
     AjoutPaiementComponent,
     GestionPaiementComponent,
     ListePaiementComponent
-
   ],
   imports: [
     RouterModule,
