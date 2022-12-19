@@ -33,6 +33,7 @@ import { DetailFormationComponent } from './components/formation/detail-formatio
 import { GestionProfilComponent } from './components/profil/gestion-profil/gestion-profil.component';
 import { InformationsComponent } from './components/profil/informations/informations.component';
 import { MotDePasseComponent } from './components/profil/mot-de-passe/mot-de-passe.component';
+import { VoirUtilisateurComponent } from './components/utilisateur/voir-utilisateur/voir-utilisateur.component';
 
 
 
@@ -63,7 +64,8 @@ import { MotDePasseComponent } from './components/profil/mot-de-passe/mot-de-pas
     DetailFormationComponent,
     GestionProfilComponent,
     InformationsComponent,
-    MotDePasseComponent
+    MotDePasseComponent,
+    VoirUtilisateurComponent,
 
   ],
   imports: [

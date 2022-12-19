@@ -11,4 +11,6 @@ export class Prospect {
     region!:Region;
     adresse!:string;
     statut!:Statut;   
+    date!:Date;
+    commentaire!:string;
 }

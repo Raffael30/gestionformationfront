@@ -1,8 +1,8 @@
-<h1 class="text-center">Utilisateur</h1>
+
 
 <div class="container">
 
-    <form #f="ngForm" (ngSubmit)="merge()">
+    <form #f="ngForm" (ngSubmit)="merge()" class="border border-radius rounded-5 p-4">
 
         <fieldset class="row">
 
@@ -66,12 +66,11 @@
                 <label for="idRole" class="form-label ms-2">Role</label>
             </div>
 
-
             <div class="my-3 text-center">
-                <input class="btn btn-primary" type="submit" value="Envoyer" />
+                <input class="btn btn-color w-25 py-3" type="submit" value="Envoyer" />
             </div>
             <div class="my-3 text-center">
-                <input class="btn btn-secondary" (click)="reset()" value="Reset" />
+                <input class="btn btn-secondary py-3" (click)="reset()" value="Reset" />
             </div>
 
         </fieldset>

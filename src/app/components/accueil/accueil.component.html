@@ -1,89 +1,202 @@
 <header>
-    <nav class="navbar navbar-expand-lg bg-light">
+    <nav class="navbar navbar-expand-lg bg-color">
         <div class="container-fluid">
-            <a class="navbar-brand" routerLink="/">Accueil</a>
+            <a class="navbar-brand" routerLink="/"> <img src="http://localhost:8015/images/techFormation-logo.png"
+                    class="w-50" alt="Logo TechFormation"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="navbar-nav d-flex">
-                <ul class="navbar-nav">
-                    <li class="nav-item" *ngIf="connectedUser == null">
-                        <a class="nav-link" routerLink="/connexion">Connexion</a>
-                    </li>
-                    <li class="nav-item" *ngIf="connectedUser != null">
-                        <a class="nav-link me-3">{{connectedUser.prenom + ' ' + connectedUser.nom}}</a>
-                    </li>
-                    <li class="nav-item" *ngIf="connectedUser != null">
-                        <a class="nav-link" (click)="logout()">Déconnexion</a>
-                    </li>
-                </ul>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <div class="navbar-nav ms-auto">
+                    <ul class="navbar-nav">
+                        <li class="nav-item" *ngIf="connectedUser == null">
+                            <a class="text-link" routerLink="/connexion">Connexion</a>
+                        </li>
+                        <li class="nav-item" *ngIf="connectedUser != null">
+                            <a class="text-link me-3" routerLink="/profil">{{connectedUser.prenom + ' ' +
+                                connectedUser.nom}}</a>
+                        </li>
+                        <li class="nav-item" *ngIf="connectedUser != null">
+                            <a class="text-link" (click)="logout()">Déconnexion</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-
-
         </div>
     </nav>
 </header>
 
-<div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
     <div class="carousel-indicators">
-        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true"
-            aria-label="Slide 1"></button>
-        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+            aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+            aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+            aria-label="Slide 3"></button>
     </div>
     <div class="carousel-inner">
         <div class="carousel-item active">
-            <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
-                aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
-                <rect width="100%" height="100%" fill="#777"></rect>
-            </svg>
-
-            <div class="container">
-                <div class="carousel-caption text-start">
-                    <h1>Example headline.</h1>
-                    <p>Some representative placeholder content for the first slide of the carousel.</p>
-                    <p><a class="btn btn-lg btn-primary" href="#">Sign up today</a></p>
-                </div>
+            <img src="http://localhost:8015/images/clavier.jpg" class="d-block w-100" alt="Image clavier">
+            <div class="carousel-caption">
+                <h3>Une nouvelle offre qui nous concerne tous</h3>
+                <p>Some representative placeholder content for the first slide.</p>
+                <button class="btn btn-outline-light">Voir plus</button>
             </div>
         </div>
         <div class="carousel-item">
-            <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
-                aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
-                <rect width="100%" height="100%" fill="#777"></rect>
-            </svg>
-
-            <div class="container">
-                <div class="carousel-caption">
-                    <h1>Another example headline.</h1>
-                    <p>Some representative placeholder content for the second slide of the carousel.</p>
-                    <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p>
-                </div>
+            <img src="http://localhost:8015/images/femme.jpg" class="d-block w-100" alt="Image femme">
+            <div class="carousel-caption">
+                <h3>Éthique & Informatique</h3>
+                <p>Some representative placeholder content for the second slide.</p>
+                <button class="btn btn-outline-light">Voir plus</button>
             </div>
         </div>
         <div class="carousel-item">
-            <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
-                aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
-                <rect width="100%" height="100%" fill="#777"></rect>
-            </svg>
-
-            <div class="container">
-                <div class="carousel-caption text-end">
-                    <h1>One more for good measure.</h1>
-                    <p>Some representative placeholder content for the third slide of this carousel.</p>
-                    <p><a class="btn btn-lg btn-primary" href="#">Browse gallery</a></p>
-                </div>
+            <img src="http://localhost:8015/images/homme.jpg" class="d-block w-100" alt="Image Homme">
+            <div class="carousel-caption">
+                <h3>Third slide label</h3>
+                <p>Some representative placeholder content for the third slide.</p>
+                <button class="btn btn-outline-light">Voir plus</button>
             </div>
         </div>
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Previous</span>
     </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Next</span>
     </button>
 </div>
 
+
+<hr class="col-6 mx-auto my-5">
+
+
+<div class="container my-5">
+
+    <h2 class="my-5 text-center">Nos pôles de formation</h2>
+
+    <div class="row row-cols-1 row-cols-md-4 g-4">
+        <div class="col">
+            <div class="card h-100">
+                <img src="http://localhost:8015/images/numerique.gif" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Informatique & Numérique</h5>
+                    <p class="card-tex text-justify">Spécialiste de la Formation aux métiers du numérique, TECHFORMATION
+                        offre à
+                        ses clients
+                        des capacités uniques d’élaboration et de réalisation de filières pointues et optimisées de
+                        Reskilling ou d’Upskilling.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card h-100">
+                <img src="http://localhost:8015/images/bureautique.gif" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Bureautique</h5>
+                    <p class="card-text text-justify">TECHFORMATION a développé des formations de plusieurs niveaux qui
+                        permettent à chaque
+                        apprenant d’utiliser les différents logiciels bureautiques en toute autonomie.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card h-100">
+                <img src="http://localhost:8015/images/base-numerique.gif" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Les usages de base</h5>
+                    <p class="card-text text-justify">TECHFORMATION propose une formation adaptée aux personnes qui ne
+                        maitrisent
+                        pas les
+                        usages du numérique et contribue ainsi à les rendres autonomes dans ce domaine.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card h-100">
+                <img src="http://localhost:8015/images/ethique.gif" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Ethique & Management</h5>
+                    <p class="card-text text-justify">TECHFORMATION propose des formations aux management qui intègre
+                        les
+                        dimensions éthiques et responsabilités sociétales.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<hr class="col-6 mx-auto my-5">
+
+
+<div class="container my-5">
+
+    <h2 class="my-5 text-center">Pourquoi nous choisir ?</h2>
+
+    <div class="row">
+        <div class="col-md-4">
+            <h3><i class="bi bi-star-fill"></i> Notre Expertise</h3>
+            <div class="text-justify">
+                <p>Notre expertise repose sur trois dimensions :</p>
+                <ul>
+                    <li>Détection fine des besoins du client</li>
+                    <li>Élaboration d’un programme adapté</li>
+                    <li>Accompagnement et suivi personnalisé du stagiaire.</li>
+                </ul>
+                <p> Cette expertise a été développée et améliorée au cours de ces 10 dernières années auprès
+                    d’entreprises
+                    de toutes tailles et de différents secteurs.
+                </p>
+                <div class="mb-3 text-start">
+                    <input class="btn btn-color" value="En savoir plus" />
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <h3><i class="bi bi-gift-fill"></i> Notre Offre</h3>
+            <div class="text-justify">
+                <ul>
+                    <li>Une offre dédiée aux technologies et métiers de l’informatique qui couvre les technologies les
+                        plus à la pointe (Java, .Net, Cobol, SAP, Devops …)</li>
+                    <li>Une offre aux applications aux usages courants de l’informatiques (Les usages de base de
+                        l’informatique…)</li>
+                    <li>Une offre sur l’éthique appliquée au management (RSE/RSO, diversité, égalité femmes/hommes…)
+                    </li>
+                </ul>
+                <div class="mb-3 text-start">
+                    <input class="btn btn-color" value="En savoir plus" />
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <h3><i class="bi bi-star-fill"></i> Notre Accompagnement</h3>
+            <div class="text-justify">
+                <p>TECHFORMATION met en place un accompagnement personnalisé pour chaque stagiaire avec un formateur
+                    référent et
+                    une équipe pédagogique disponible.</p>
+                <p>Pour les entreprises, l’accompagnement se fait en temps réels à l’aide d’outils de reporting
+                    numérisés. Le troisième volet de l’accompagnement se fait post mission pour s’assurer de
+                    l’adaptation de la personne formée à son poste de travail.</p>
+                <div class="mb-3 text-start">
+                    <input class="btn btn-color" value="En savoir plus" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<hr class="col-6 mx-auto my-5">
+
+
+<h2 class="text-center my-5">Rejoignez-nous !</h2>
 <app-ajout-prospect></app-ajout-prospect>
+
+<app-footer></app-footer>

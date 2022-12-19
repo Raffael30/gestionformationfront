@@ -1,14 +1,17 @@
 <app-header></app-header>
 
+<h1  class="text-center my-5">{{nomRole | titlecase }}</h1>
+
+
 <app-ajout-utilisateur *ngIf="affichageFormulaire" [idUtilisateur]="idUtilisateur" [idProspect]="idProspect"></app-ajout-utilisateur>
 
 <div *ngIf="affichageFormulaire" class="container mt-5">
     <div class="row text-center">
         <div class="col-md-6">
-            <button class="btn btn-primary" (click)="showUtilisateurs()">Utilisateurs</button>
+            <button class="btn btn-color w-50 py-3" (click)="showUtilisateurs()">Utilisateurs</button>
         </div>
         <div class="col-md-6">
-            <button class="btn btn-primary" (click)="showProspects()">Prospects</button>
+            <button class="btn btn-color w-50 py-3" (click)="showProspects()">Prospects</button>
         </div>
     </div>
 </div>
