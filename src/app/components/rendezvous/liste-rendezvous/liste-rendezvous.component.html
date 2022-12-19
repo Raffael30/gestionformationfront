@@ -4,19 +4,6 @@
 
             <caption class="text-center fs-4">Liste des rendez-vous</caption>
             <thead>
-
-
-                <!--
-                    id!:number;
-                commentaire!:string;
-                horaire!:Time;
-                statut!:Statut;
-                prospect!:Prospect;
-                utilisateur!:Utilisateur;
-                message!:Message;
-                -->
-
-
                 <tr>
                     <th>Id</th>
                     <th>Commentaire</th>
@@ -29,8 +16,6 @@
                 </tr>
             </thead>
             <tbody>
-
-
                 <tr *ngFor="let rendezvous of rendezvouss">
                     <td>{{rendezvous.id}}</td>
                     <td>{{rendezvous.commentaire}}</td>
@@ -41,11 +26,8 @@
 
                     <td *ngIf="connectedUser.role.nom==='admin'">
 
-                        <button class="btn btn-outline-primary" (click)="modificationRendezvous(rendezvous.id)">Modifier
+                        <button class="btn btn-color" (click)="modificationRendezvous(rendezvous.id)">Modifier
                         </button>
-
-
-
                     </td>
                     <td *ngIf="connectedUser.role.nom==='admin'"><button class="btn btn-outline-danger"
                             (click)="delete(rendezvous.id)">Supprimer</button>

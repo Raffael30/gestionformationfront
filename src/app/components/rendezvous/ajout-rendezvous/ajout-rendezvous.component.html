@@ -1,50 +1,52 @@
-<h1 class="text-center">Rendez-vous</h1>
-
 <div class="container">
 
-    <form #f="ngForm" (ngSubmit)="merge()">
+    <form #f="ngForm" (ngSubmit)="merge()" class="border border-radius rounded-5 p-4">
 
         <fieldset>
 
             <legend class="text-center">Informations du rendez-vous</legend>
 
-
-            <div class="mb-3">
-                <label for="horaire">Date</label>
+            <div class="mb-3 form-floating">
                 <input type="datetime-local" class="form-control" id="horaire" name="horaire"
-                    [(ngModel)]="rendezvous.horaire" />
+                    [(ngModel)]="rendezvous.horaire" placeholder=" " />
+                <label for="horaire" class="form-label ms-2">Date</label>
             </div>
 
+            <div class="mb-3 form-floating">
+                <select [(ngModel)]="idStatut" name="idStatut" class="form-select">
+                    <option [value]="0" disabled>---Selectionnez un statut---</option>
+                    <option *ngFor="let statut of statuts" [value]="statut.id">{{statut.nom}}</option>
+                </select>
+                <label for="idStatut" class="form-label">Statut</label>
+            </div>
 
-            <label for="idStatut" class="form-label">Statut</label>
-            <select [(ngModel)]="idStatut" name="idStatut" class="form-select">
-                <option [value]="0" disabled>---Selectionnez un statut---</option>
-                <option *ngFor="let statut of statuts" [value]="statut.id">{{statut.nom}}</option>
-            </select>
+            <div class="mb-3 form-floating">
+                <select [(ngModel)]="idProspect" name="idProspect" class="form-select">
+                    <option [value]="0" disabled>---Selectionnez un prospect---</option>
+                    <option *ngFor="let prospect of prospects" [value]="prospect.id">{{prospect.prenom}}
+                        {{prospect.nom}}
+                    </option>
+                </select>
+                <label for="idProspect" class="form-label">Prospect</label>
+            </div>
 
+            <div class="mb-3 form-floating">
+                <select [(ngModel)]="idUtilisateur" name="idUtilisateur" class="form-select">
+                    <option [value]="0" disabled>---Selectionnez un utilisateur---</option>
+                    <option *ngFor="let utilisateur of utilisateurs" [value]="utilisateur.id">{{utilisateur.prenom}}
+                        {{utilisateur.nom}}</option>
+                </select>
+                <label for="idUtilisateur" class="form-label">Utilisateur</label>
+            </div>
 
-            <label for="idProspect" class="form-label">Prospect</label>
-            <select [(ngModel)]="idProspect" name="idProspect" class="form-select">
-                <option [value]="0" disabled>---Selectionnez un prospect---</option>
-                <option *ngFor="let prospect of prospects" [value]="prospect.id">{{prospect.prenom}} {{prospect.nom}}
-                </option>
-            </select>
-
-            <label for="idUtilisateur" class="form-label">Utilisateur</label>
-            <select [(ngModel)]="idUtilisateur" name="idUtilisateur" class="form-select">
-                <option [value]="0" disabled>---Selectionnez un utilisateur---</option>
-                <option *ngFor="let utilisateur of utilisateurs" [value]="utilisateur.id">{{utilisateur.prenom}}
-                    {{utilisateur.nom}}</option>
-            </select>
-
-            <div class="mb-3">
-                <label for="commentaire">Commentaire</label>
-                <textarea rows="7" type="text" class="form-control" id="commentaire" name="commentaire"
+            <div class="mb-3 form-floating">
+                <textarea type="text" class="form-control" id="commentaire" name="commentaire"
                     [(ngModel)]="rendezvous.commentaire"></textarea>
+                <label class="form-label" for="commentaire">Commentaire</label>
             </div>
 
             <div class="mb-3 text-center">
-                <input class="btn btn-primary" type="submit" value="Envoyer" />
+                <input class="btn btn-color w-25 py-3" type="submit" value="Envoyer" />
             </div>
 
         </fieldset>
