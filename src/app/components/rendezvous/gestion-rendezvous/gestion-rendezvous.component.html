@@ -9,11 +9,8 @@ prospect!:Prospect;
 -->
 
 
-<app-ajout-rendezvous></app-ajout-rendezvous>
+<app-ajout-rendezvous [idRendezvous]="idRendezvous"></app-ajout-rendezvous>
 
-
-
-<app-liste-rendezvous></app-liste-rendezvous>
-
+<app-liste-rendezvous (appelGestionRendezvous)="getIdRendezvous($event)"></app-liste-rendezvous>
 
 <app-footer></app-footer>

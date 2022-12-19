@@ -54,6 +54,10 @@ export class GestionRendezvousComponent implements OnInit{
     })
   }
 
+  getIdRendezvous(idRendezvous: number) {
+    this.idRendezvous = idRendezvous;
+  }
+
   getAllStatutsByType(){
     this.statutService.getAllByType('rendezvous', 'general').subscribe(response => {
       this.statuts = response;

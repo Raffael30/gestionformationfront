@@ -36,8 +36,8 @@
                     <td>{{rendezvous.commentaire}}</td>
                     <td>{{rendezvous.horaire | date : 'dd/MM/yyyy hh:mm'}}</td>
                     <td><span *ngIf="rendezvous.statut!=null">{{rendezvous.statut.nom}}</span></td>
-                    <td>{{rendezvous.prospect}}</td>
-                    <td>{{rendezvous.utilisateur}}</td>
+                    <td>{{rendezvous.prospect.prenom}} {{rendezvous.prospect.nom}}</td>
+                    <td>{{rendezvous.utilisateur.prenom}} {{rendezvous.utilisateur.nom}}</td>
 
                     <td *ngIf="connectedUser.role.nom==='admin'">
 

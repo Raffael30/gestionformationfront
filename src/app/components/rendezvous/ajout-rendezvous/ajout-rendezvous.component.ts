@@ -1,4 +1,4 @@
-import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Prospect } from 'src/app/models/prospect';
 import { Rendezvous } from 'src/app/models/rendezvous';
 import { Statut } from 'src/app/models/statut';
@@ -18,11 +18,9 @@ export class AjoutRendezvousComponent implements OnInit, OnChanges {
   rendezvous!: Rendezvous;
   rendezvouss!: Rendezvous[];
 
-  idRendezvous!: number;
   idProspect!: number;
   idStatut!: number;
   idUtilisateur!: number;
-
 
   statut!: Statut;
   statuts!: Statut[];
@@ -31,7 +29,7 @@ export class AjoutRendezvousComponent implements OnInit, OnChanges {
   utilisateur!: Utilisateur;
   utilisateurs!: Utilisateur[];
 
-
+  @Input() idRendezvous!: number;
 
   constructor(private utilisateurService: UtilisateurService, private prospectService: ProspectService, private rendezvousService: RendezvousService, private statutService: StatutService) { }
 
@@ -40,7 +38,6 @@ export class AjoutRendezvousComponent implements OnInit, OnChanges {
     this.idProspect = 0;
     this.idStatut = 0;
     this.idUtilisateur = 0;
-    this.idRendezvous = 0;
 
     this.getAllStatutsByType();
     this.getAllProspects();
@@ -49,6 +46,14 @@ export class AjoutRendezvousComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(): void {
+    if (this.idRendezvous) {
+      this.rendezvousService.getById(this.idRendezvous).subscribe(response => {
+        this.rendezvous = response;
+        this.idStatut = this.rendezvous.statut.id;
+        this.idProspect = this.rendezvous.prospect.id;
+        this.idUtilisateur = this.rendezvous.utilisateur.id;
+      })
+    }
 
   }
 

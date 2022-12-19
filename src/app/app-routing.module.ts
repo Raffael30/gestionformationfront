@@ -5,6 +5,7 @@ import { AuthentificationComponent } from './authentification/authentification.c
 import { AccueilComponent } from './components/accueil/accueil.component';
 import { GestionFormationComponent } from './components/formation/gestion-formation/gestion-formation.component';
 import { GestionMessageComponent } from './components/message/gestion-message/gestion-message.component';
+import { GestionPaiementComponent } from './components/paiement/gestion-paiement/gestion-paiement.component';
 import { GestionProfilComponent } from './components/profil/gestion-profil/gestion-profil.component';
 import { AjoutProspectComponent } from './components/prospect/ajout-prospect/ajout-prospect.component';
 import { GestionProspectComponent } from './components/prospect/gestion-prospect/gestion-prospect.component';
@@ -19,6 +20,7 @@ const routes : Route [] = [
   {path: 'rendezvous', component: GestionRendezvousComponent, canActivate: [AuthenticateGuard]},
   {path: 'formations', component: GestionFormationComponent, canActivate:[AuthenticateGuard]},
   {path: 'messages', component: GestionMessageComponent, canActivate:[AuthenticateGuard]},
+  {path: 'paiements', component: GestionPaiementComponent, canActivate:[AuthenticateGuard]},
   {path: 'prospects', component: GestionProspectComponent},
   {path: 'ajoutProspect', component: AjoutProspectComponent},
   {path: 'profil', component: GestionProfilComponent}
