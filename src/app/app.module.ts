@@ -36,6 +36,7 @@ import { VoirUtilisateurComponent } from './components/utilisateur/voir-utilisat
 import { AjoutPaiementComponent } from './components/paiement/ajout-paiement/ajout-paiement.component';
 import { GestionPaiementComponent } from './components/paiement/gestion-paiement/gestion-paiement.component';
 import { ListePaiementComponent } from './components/paiement/liste-paiement/liste-paiement.component';
+import { WelcomeComponent } from './components/profil/welcome/welcome.component';
 
 
 
@@ -71,7 +72,8 @@ import { ListePaiementComponent } from './components/paiement/liste-paiement/lis
     VoirUtilisateurComponent,
     AjoutPaiementComponent,
     GestionPaiementComponent,
-    ListePaiementComponent
+    ListePaiementComponent,
+    WelcomeComponent
   ],
   imports: [
     RouterModule,
