@@ -1,0 +1,35 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css");
+
+.text-justify {
+    text-align: justify;
+}
+
+.bi-star-fill, .bi-gift-fill, hr {
+    color:rgb(19, 120, 120);
+}
+
+.btn-color {
+    background-color: rgb(19, 120, 120);
+    color:white;
+    &:hover {
+        background-color: white;
+        border-color: rgb(19, 120, 120);
+        color:rgb(19, 120, 120);
+    }
+}
+
+.bg-color {
+    background-color: rgb(19, 120, 120);
+    color: white;
+}
+
+.text-color {
+    color: white !important;
+}
+
+.text-link {
+    color: white;
+    text-decoration: none;
+    font-size: 1.15rem;
+    margin: 0 7px;
+}

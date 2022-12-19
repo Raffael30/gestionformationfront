@@ -22,7 +22,8 @@ export class AjoutUtilisateurComponent implements OnInit, OnChanges{
   idRegion!: number;
   regions!: Region[];
   voirMotDePasse!:boolean;
-  
+  createUser!:boolean;
+
   @Input() idUtilisateur!:number;
   @Input() idProspect!:number;
 
@@ -35,6 +36,7 @@ export class AjoutUtilisateurComponent implements OnInit, OnChanges{
     this.getAllRegions();
     this.getAllRoles();
     this.voirMotDePasse = true;
+    this.createUser=true;
   }
 
   ngOnChanges(): void {
@@ -44,6 +46,7 @@ export class AjoutUtilisateurComponent implements OnInit, OnChanges{
         this.idRegion = this.utilisateur.region.id;
         this.idRole = this.utilisateur.role.id;
         this.voirMotDePasse = false;
+        this.createUser = false;
       })
     }
     if (this.idProspect) {
@@ -58,6 +61,7 @@ export class AjoutUtilisateurComponent implements OnInit, OnChanges{
         this.idRegion = this.prospect.region.id;
         this.idRole = 5;
         this.voirMotDePasse = true;
+        this.createUser=true;
       })
 
     }
@@ -96,16 +100,30 @@ export class AjoutUtilisateurComponent implements OnInit, OnChanges{
         this.roleService.getById(this.idRole).subscribe(
           response => {
             this.utilisateur.role = response;
-            this.utilisateurService.merge(this.utilisateur).subscribe(
-              response => {
-                console.log('ok')
-                window.location.reload();
-              },
-              error => {
-                console.log('non ok')
-                console.log(error.message)
-              }
-            )
+            if(this.createUser) {
+              this.utilisateurService.add(this.utilisateur).subscribe(
+                response => {
+                  console.log('ok')
+                  window.location.reload();
+                },
+                error => {
+                  console.log('non ok')
+                  console.log(error.message)
+                }
+              )
+            } else {
+              this.utilisateurService.mergeInformations(this.utilisateur).subscribe(
+                response => {
+                  console.log('ok')
+                  window.location.reload();
+                },
+                error => {
+                  console.log('non ok')
+                  console.log(error.message)
+                }
+              )
+            }
+          
           }
         )
       }

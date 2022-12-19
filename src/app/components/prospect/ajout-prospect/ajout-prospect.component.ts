@@ -39,6 +39,7 @@ export class AjoutProspectComponent implements OnInit, OnChanges {
     this.statutService.getById(1).subscribe(
       response => {
         this.prospect.statut = response;
+        this.prospect.date = new Date();
         this.regionService.getById(this.idRegion).subscribe(response => {
           this.prospect.region = response;
           this.prospectService.merge(this.prospect).subscribe(response => {

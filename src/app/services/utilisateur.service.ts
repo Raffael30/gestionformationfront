@@ -17,15 +17,22 @@ export class UtilisateurService {
         return this.http.get<Utilisateur[]>(`http://localhost:8015/api/utilisateurs/roles/${nomRole}`);
     }
 
-    merge(utilisateur: Utilisateur) {
-        return this.http.put('http://localhost:8015/api/utilisateurs', utilisateur);
+    add(utilisateur: Utilisateur) {
+        return this.http.post('http://localhost:8015/api/utilisateurs', utilisateur);
+    }
+
+    mergePassword(utilisateur: Utilisateur) {
+        return this.http.put('http://localhost:8015/api/utilisateurs/password', utilisateur);
+    }
+
+    mergeInformations(utilisateur: Utilisateur) {
+        return this.http.put('http://localhost:8015/api/utilisateurs/informations', utilisateur);
     }
 
     delete(id: number) {
         return this.http.delete(`http://localhost:8015/api/utilisateurs/${id}`);
     }
     
-
     getById(id:number)
     {
         return this.http.get<Utilisateur>(`http://localhost:8015/api/utilisateurs/${id}`)

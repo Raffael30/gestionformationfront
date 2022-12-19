@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Utilisateur } from 'src/app/models/utilisateur';
 import { UtilisateurService } from 'src/app/services/utilisateur.service';
 
@@ -8,7 +8,7 @@ import { UtilisateurService } from 'src/app/services/utilisateur.service';
   templateUrl: './liste-utilisateur.component.html',
   styleUrls: ['./liste-utilisateur.component.scss']
 })
-export class ListeUtilisateurComponent implements OnInit, OnChanges {
+export class ListeUtilisateurComponent implements OnInit {
 
 
   utilisateurs!: Utilisateur[];
@@ -22,34 +22,30 @@ export class ListeUtilisateurComponent implements OnInit, OnChanges {
   idUtilisateur!: number;
 
 
-  constructor(private utilisateurService: UtilisateurService, private activatedRoute: ActivatedRoute) { }
+  constructor(private utilisateurService: UtilisateurService, private activatedRoute: ActivatedRoute, private route:Router) { 
+    this.route.routeReuseStrategy.shouldReuseRoute = () => false;
+  }
 
 
   @Output() appelGestionUtilisateur = new EventEmitter<number>()
 
   ngOnInit(): void {
+    
+    this.nomRole = this.activatedRoute.snapshot.params['nomRole'];
     if (sessionStorage.getItem('connectedUser') != null) {
       this.connectedUser = JSON.parse(sessionStorage.getItem('connectedUser') ?? "");
     }
     this.utilisateur = new Utilisateur();
-    this.nomRole = this.activatedRoute.snapshot.params['nomRole'];
     if (this.nomRole) {
-      this.getAllByNomRole(this.nomRole)
+      this.getAllByNomRole(this.nomRole);
     }
     else {
       this.getAll();
     }
+
   }
 
-  ngOnChanges(): void {
-    this.nomRole = this.activatedRoute.snapshot.params['nomRole'];
-    if (this.nomRole) {
-      this.getAllByNomRole(this.nomRole)
-    }
-    else {
-      this.getAll();
-    }
-  }
+
 
 
   modificationUtilisateur(idUtilisateur: number) {

@@ -1,48 +1,54 @@
-<h1 class="text-center">Contactez-nous !</h1>
 
-<div class="container">
 
-    <form #f="ngForm" (ngSubmit)="merge()">
+<div class="container mb-5">
+
+    <form #f="ngForm" (ngSubmit)="merge()" class="border border-radius rounded-5 p-4">
 
         <fieldset>
 
-            <legend class="text-center">Vos coordonnées</legend>
+            <legend class="text-center my-4">Coordonnées</legend>
 
-            <div class="mb-3">
-                <label for="nom">Nom</label>
-                <input type="text" class="form-control" id="nom" name="nom" [(ngModel)]="prospect.nom" />
+            <div class="mb-3 form-floating">
+                <input type="text" class="form-control" id="nom" name="nom" [(ngModel)]="prospect.nom" placeholder=" "/>
+                <label for="nom" class="form-label ms-2">Nom</label>
             </div>
 
-            <div class="mb-3">
-                <label for="prenom">Prenom</label>
-                <input type="text" class="form-control" id="prenom" name="prenom" [(ngModel)]="prospect.prenom" />
+            <div class="mb-3 form-floating">
+                <input type="text" class="form-control" id="prenom" name="prenom" [(ngModel)]="prospect.prenom" placeholder=" "/>
+                <label for="prenom" class="form-label ms-2">Prenom</label>
             </div>
 
-            <div class="mb-3">
-                <label for="email">Adresse email</label>
-                <input type="email" class="form-control" id="email" name="email" [(ngModel)]="prospect.email" />
+            <div class="mb-3 form-floating">
+                <input type="email" class="form-control" id="email" name="email" [(ngModel)]="prospect.email" placeholder=" "/>
+                <label for="email" class="form-label ms-2">Adresse email</label>
             </div>
 
-            <div class="mb-3">
-                <label for="adresse">Adresse postale</label>
-                <input type="text" class="form-control" id="adresse" name="adresse" [(ngModel)]="prospect.adresse" />
+            <div class="mb-3 form-floating">
+                <input type="text" class="form-control" id="adresse" name="adresse" [(ngModel)]="prospect.adresse" placeholder=" "/>
+                <label for="adresse" class="form-label ms-2">Adresse postale</label>
             </div>
 
-            <div class="mb-3">
-                <label for="telephone">Téléphone</label>
-                <input type="text" class="form-control" id="telephone" name="telephone" [(ngModel)]="prospect.telephone" />
+            <div class="mb-3 form-floating">
+                <input type="text" class="form-control" id="telephone" name="telephone" [(ngModel)]="prospect.telephone" placeholder=" "/>
+                <label for="telephone" class="form-label ms-2">Téléphone</label>
             </div>
 
-            <div class="mb-3">
-                <label for="idRegion" class="form-label">Région</label>
+            <div class="mb-3 form-floating">
                 <select [(ngModel)]="idRegion" name="idRegion" class="form-control">
                     <option [ngValue]="0" disabled>---Selectionnez une région---</option>
                     <option *ngFor="let region of regions" [ngValue]="region.id">{{region.nom}}</option>
                 </select>
+                <label for="idRegion" class="form-label ms-2">Région</label>
             </div>
 
-            <div class="mb-3 text-center">
-                <input class="btn btn-primary" type="submit" value="Envoyer" />
+            <div class="mb-3 form-floating">
+                <textarea type="text" class="form-control" id="commentaire" name="commentaire"
+                    [(ngModel)]="prospect.commentaire" placeholder=" "></textarea>
+                <label for="commentaire" class="form-label ms-2">Commentaire</label>
+            </div>
+
+            <div class="my-3 text-center">
+                <input class="btn btn-color w-25 py-3" type="submit" value="Envoyer" />
             </div>
 
         </fieldset>
