@@ -24,7 +24,7 @@ export class ListeRendezvousComponent implements OnInit {
   constructor(private rendezvousService: RendezvousService,
     private activatedRoute: ActivatedRoute) { }
 
-    @Output() appelUtilisateur= new EventEmitter<number>();
+    @Output() appelGestionRendezvous = new EventEmitter<number>()
 
     ngOnInit(): void {
   
@@ -58,15 +58,8 @@ export class ListeRendezvousComponent implements OnInit {
       )
     }
   
-    modificationRendezvous(id: number) {
-      this.rendezvousService.getById(id).subscribe(
-        response => {
-          this.rendezvous = response;
-        },
-        error => {
-          console.log(error.message)
-        }
-      )
+    modificationRendezvous(idRendezvous: number) {
+      this.appelGestionRendezvous.emit(idRendezvous);
     }
 
 }
