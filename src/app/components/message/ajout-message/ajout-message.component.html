@@ -1,1 +1,49 @@
-<p>ajout-message works!</p>
+<h1 class="text-center">Message</h1>
+
+<div class="container">
+
+    <form #f="ngForm" (ngSubmit)="merge()">
+
+        <fieldset>
+
+          
+            <legend class="text-center">Informations du rendez-vous</legend>
+
+
+            <div class="mb-3">
+                <label for="objet">Objet</label>
+                <input type="text" class="form-control" id="objet" name="objet"
+                    [(ngModel)]="message.objet" />
+            </div>
+
+
+            <label for="idRendezvous" class="form-label">Rendez-vous</label>
+            <select [(ngModel)]="idRendezvous" name="idRendezvous" class="form-select">
+                <option [value]="0" disabled>---Selectionnez un rendez-vous---</option>
+                <option *ngFor="let rendezvous of rendezvouss" [value]="rendezvous.id">{{rendezvous.horaire}}</option>
+            </select>
+
+
+            <label for="idUtilisateur" class="form-label">Utilisateur</label>
+            <select [(ngModel)]="idUtilisateur" name="idUtilisateur" class="form-select">
+                <option [value]="0" disabled>---Selectionnez un utilisateur---</option>
+                <option *ngFor="let utilisateur of utilisateurs" [value]="utilisateur.id">{{utilisateur.prenom}} {{utilisateur.nom}}
+                </option>
+            </select>
+
+
+            <div class="mb-3">
+                <label for="commentaire">Commentaire</label>
+                <textarea rows="7" type="text" class="form-control" id="commentaire" name="commentaire"
+                    [(ngModel)]="rendezvous.commentaire"></textarea>
+            </div>
+
+            <div class="mb-3 text-center">
+                <input class="btn btn-primary" type="submit" value="Envoyer" />
+            </div>
+
+        </fieldset>
+
+    </form>
+
+</div>
