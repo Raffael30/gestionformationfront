@@ -6,46 +6,52 @@
 
             <legend class="text-center">Gestion des formations</legend>
 
-            <div class="mb-3">
-                <label for="nom">Nom</label>
-                <input type="text" class="form-control" id="nom" name="nom" [(ngModel)]="formation.nom" />
+            <div class="mb-3 form-floating">
+                <input type="text" class="form-control" id="nom" name="nom" [(ngModel)]="formation.nom" placeholder=" " />
+                <label for="nom" class="form-label ms-2">Nom</label>
             </div>
 
-            <div class="mb-3">
-                <label for="lieu">Lieu</label>
-                <input type="text" class="form-control" id="lieu" name="lieu" [(ngModel)]="formation.lieu" />
+            <div class="mb-3 form-floating">
+                
+                <input type="text" class="form-control" id="lieu" name="lieu" [(ngModel)]="formation.lieu" placeholder=" "/>
+                <label for="lieu" class="form-label ms-2">Lieu</label>
             </div>
 
-            <div class="mb-3">
-                <label for="prix">Prix</label>
-                <input type="text" class="form-control" id="prix" name="prix" [(ngModel)]="formation.prix" />
+            <div class="mb-3 form-floating">
+                
+                <input type="text" class="form-control" id="prix" name="prix" [(ngModel)]="formation.prix" placeholder=" "/>
+                <label for="prix" class="form-label ms-2">Prix</label>
             </div>
 
-            <div class="mb-3">
-                <label for="dateDebut">Date Début</label>
-                <input type="date" class="form-control" id="dateDebut" name="dateDebut" [(ngModel)]="formation.dateDebut" />
+            <div class="mb-3 form-floating">
+                
+                <input type="date" class="form-control" id="dateDebut" name="dateDebut" [(ngModel)]="formation.dateDebut" placeholder=" "/>
+                <label for="dateDebut" class="form-label ms-2">Date Début</label>
             </div>
 
-            <div class="mb-3">
-                <label for="dateFin">Date Fin</label>
-                <input type="date" class="form-control" id="dateFin" name="dateFin" [(ngModel)]="formation.dateFin" />
+            <div class="mb-3 form-floating">
+                
+                <input type="date" class="form-control" id="dateFin" name="dateFin" [(ngModel)]="formation.dateFin" placeholder=" "/>
+                <label for="dateFin" class="form-label ms-2">Date Fin</label>
             </div>
 
 
-            <div class="mb-3">
-                <label for="idFormateur" class="form-label">Formateur</label>
+            <div class="mb-3 form-floating">
+                
                 <select [(ngModel)]="idFormateur" name="idFormateur" class="form-select">
                     <option [ngValue]="0" disabled>---Selectionnez un formateur---</option>
                     <option *ngFor="let formateur of formateurs" [value]="formateur.id">{{formateur.nom}} {{formateur.prenom}}</option>
                 </select>
+                <label for="idFormateur" class="form-label ms-2">Formateur</label>
             </div>
 
             <div class="mb-3">
-                <label for="idUtilisateur" class="form-label">Participant</label>
-                <select [(ngModel)]="idUtilisateur" name="idUtilisateur" class="form-select" multiple>
-                    <option [ngValue]="0" disabled>---Selectionnez un participant---</option>
+               <label for="idUtilisateur" class="form-label ms-2">Participant</label>
+                <select  multiple   [(ngModel)]="idUtilisateur" name="idUtilisateur" class="form-select" >
+                    
                     <option *ngFor="let utilisateur of utilisateurs" [ngValue]="utilisateur.id">{{utilisateur.nom}} {{utilisateur.prenom}}</option>
-                </select>
+              </select>
+              
             </div>
 
             <div class="mb-3 text-center">

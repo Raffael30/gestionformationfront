@@ -25,6 +25,8 @@ export class AjoutFormationComponent implements OnInit, OnChanges {
 
   ngOnInit(): void {
 
+    this.idFormateur=0;
+    this.idUtilisateur=0;
     this.formation = new Formation();
     this.getAllUtilisateurs();
     this.getAllFormateurs();
