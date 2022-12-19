@@ -1,10 +1,10 @@
 <div class="container">
 
-    <form #f="ngForm" (ngSubmit)="merge()">
+    <form #f="ngForm" (ngSubmit)="merge()" class="border border-radius rounded-5 p-4">
 
         <fieldset>
 
-            <legend class="text-center">Gestion des formations</legend>
+            <legend class="text-center">Informations</legend>
 
             <div class="mb-3 form-floating">
                 <input type="text" class="form-control" id="nom" name="nom" [(ngModel)]="formation.nom" placeholder=" " />
@@ -55,7 +55,7 @@
             </div>
 
             <div class="mb-3 text-center">
-                <input class="btn btn-primary" type="submit" value="Ajouter" />
+                <input class="btn btn-color w-25 py-3" type="submit" value="Ajouter" />
             </div>
 
         </fieldset>
