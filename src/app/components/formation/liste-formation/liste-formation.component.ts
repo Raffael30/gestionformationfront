@@ -49,7 +49,7 @@ constructor(private formationService:FormationService){}
   getAllFormation()
   {
     this.formationService.getAll().subscribe
-    (response=>this.formations=response)
+    (response=>this.formations=response);
   }
 
   delete(id:number)

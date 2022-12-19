@@ -33,6 +33,9 @@ import { DetailFormationComponent } from './components/formation/detail-formatio
 import { GestionProfilComponent } from './components/profil/gestion-profil/gestion-profil.component';
 import { InformationsComponent } from './components/profil/informations/informations.component';
 import { MotDePasseComponent } from './components/profil/mot-de-passe/mot-de-passe.component';
+import { AjoutPaiementComponent } from './components/paiement/ajout-paiement/ajout-paiement.component';
+import { GestionPaiementComponent } from './components/paiement/gestion-paiement/gestion-paiement.component';
+import { ListePaiementComponent } from './components/paiement/liste-paiement/liste-paiement.component';
 
 
 
@@ -63,7 +66,10 @@ import { MotDePasseComponent } from './components/profil/mot-de-passe/mot-de-pas
     DetailFormationComponent,
     GestionProfilComponent,
     InformationsComponent,
-    MotDePasseComponent
+    MotDePasseComponent,
+    AjoutPaiementComponent,
+    GestionPaiementComponent,
+    ListePaiementComponent
 
   ],
   imports: [

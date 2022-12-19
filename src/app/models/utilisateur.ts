@@ -1,4 +1,5 @@
 import { Formation } from "./formation";
+import { Paiement } from "./paiement";
 import { Region } from "./region";
 import { Role } from "./role";
 
@@ -16,6 +17,7 @@ export class Utilisateur {
     password!:string;
     role!:Role;
 
-    formation!:Formation[]
+    formation!:Formation[];
+
     
 }
