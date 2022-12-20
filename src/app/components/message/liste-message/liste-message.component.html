@@ -1,1 +1,33 @@
-<p>liste-message works!</p>
+<div class="container-fluid">
+    <div class="table-responsive">
+        <table class="table table-striped table-hover caption-top text-center my-4">
+
+            <caption class="text-center fs-4">Liste des messages</caption>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Objet</th>
+                    <th>Rendez-vous</th>
+                    <th *ngIf="connectedUser.role.nom==='admin'">Modifier</th>
+                    <th *ngIf="connectedUser.role.nom==='admin'">Supprimer</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let message of messages">
+                    <td>{{message.id}}</td>
+                    <td>{{message.objet}}</td>
+                    <td>{{message.rendezvous.horaire | date:'dd/MM/yyyy HH:mm' }} {{message.rendezvous.utilisateur.prenom}} {{message.rendezvous.utilisateur.nom}}</td>
+
+                    <td *ngIf="connectedUser.role.nom==='admin'">
+
+                        <button class="btn btn-color" (click)="modificationMessage(message.id)">Modifier
+                        </button>
+                    </td>
+                    <td *ngIf="connectedUser.role.nom==='admin'"><button class="btn btn-outline-danger"
+                            (click)="delete(message.id)">Supprimer</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

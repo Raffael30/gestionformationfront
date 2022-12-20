@@ -12,10 +12,8 @@ import { MessageService } from 'src/app/services/message.service';
 })
 export class ListeMessageComponent implements OnInit {
 
-  utilisateurs!: Utilisateur[];
-  utilisateur!: Utilisateur;
+
   connectedUser!: Utilisateur;
-  idUtilisateur!:number;
   idRendezvous!: number;
   idMessage!: number;
   messageSelected!: Message;
@@ -59,7 +57,7 @@ export class ListeMessageComponent implements OnInit {
       )
     }
   
-    modificationRendezvous(idMessage: number) {
+    modificationMessage(idMessage: number) {
       this.appelGestionMessage.emit(idMessage);
     }
 

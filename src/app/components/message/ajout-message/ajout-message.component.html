@@ -1,45 +1,33 @@
-<h1 class="text-center">Message</h1>
 
 <div class="container">
 
-    <form #f="ngForm" (ngSubmit)="merge()">
+    <form #f="ngForm" (ngSubmit)="merge()" class="border border-radius rounded-5 p-4">
 
         <fieldset>
 
           
-            <legend class="text-center">Informations du rendez-vous</legend>
+            <legend class="text-center">Informations du message</legend>
 
 
-            <div class="mb-3">
-                <label for="objet">Objet</label>
+            <div class="mb-3 form-floating">
                 <input type="text" class="form-control" id="objet" name="objet"
-                    [(ngModel)]="message.objet" />
+                    [(ngModel)]="message.objet" placeholder=" " />
+                    <label for="objet" class="form-label ms-2">Objet</label>
             </div>
 
-
-            <label for="idRendezvous" class="form-label">Rendez-vous</label>
+            <div class="mb-3 form-floating">
             <select [(ngModel)]="idRendezvous" name="idRendezvous" class="form-select">
                 <option [value]="0" disabled>---Selectionnez un rendez-vous---</option>
-                <option *ngFor="let rendezvous of rendezvouss" [value]="rendezvous.id">{{rendezvous.horaire}}</option>
+                <option *ngFor="let rendezvous of rendezvouss" [value]="rendezvous.id">{{rendezvous.commentaire}} {{rendezvous.horaire | date:'dd/MM/yyyy HH:mm'}} {{rendezvous.utilisateur.prenom}} {{rendezvous.utilisateur.nom}}</option>
             </select>
+            <label for="idRendezvous" class="form-label ms-2">Rendez-vous</label>
+        </div>
 
 
-            <label for="idUtilisateur" class="form-label">Utilisateur</label>
-            <select [(ngModel)]="idUtilisateur" name="idUtilisateur" class="form-select">
-                <option [value]="0" disabled>---Selectionnez un utilisateur---</option>
-                <option *ngFor="let utilisateur of utilisateurs" [value]="utilisateur.id">{{utilisateur.prenom}} {{utilisateur.nom}}
-                </option>
-            </select>
 
-
-            <div class="mb-3">
-                <label for="commentaire">Commentaire</label>
-                <textarea rows="7" type="text" class="form-control" id="commentaire" name="commentaire"
-                    [(ngModel)]="rendezvous.commentaire"></textarea>
-            </div>
 
             <div class="mb-3 text-center">
-                <input class="btn btn-primary" type="submit" value="Envoyer" />
+                <input class="btn btn-color w-25 py-3" type="submit" value="Envoyer" />
             </div>
 
         </fieldset>

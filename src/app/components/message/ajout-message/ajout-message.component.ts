@@ -21,8 +21,6 @@ export class AjoutMessageComponent implements OnInit, OnChanges {
 
   rendezvous!: Rendezvous;
   rendezvouss!: Rendezvous[];
-  utilisateur!: Utilisateur;
-  utilisateurs!: Utilisateur[];
 
   @Input() idMessage!: number;
 
@@ -31,12 +29,10 @@ export class AjoutMessageComponent implements OnInit, OnChanges {
 
   ngOnInit(): void {
 
-    this.idMessage = 0;
     this.idRendezvous = 0;
     this.idUtilisateur = 0;
 
     this.getAllRendezvouss();
-    this.getAllUtilisateurs();
     this.message = new Message();
   }
 
@@ -51,11 +47,6 @@ export class AjoutMessageComponent implements OnInit, OnChanges {
 
   }
 
-  getUtilisateur(idUtilisateur: number) {
-    this.utilisateurService.getById(idUtilisateur).subscribe(response => {
-      this.utilisateur = response;
-    })
-  }
 
   getRendezvous(idRendezvous: number) {
     this.rendezvousService.getById(idRendezvous).subscribe(response => {
@@ -76,18 +67,10 @@ export class AjoutMessageComponent implements OnInit, OnChanges {
     })
   }
 
-  getAllUtilisateurs(){
-    this.utilisateurService.getAll().subscribe(response => {
-      this.utilisateurs = response;
-    })
-  }
-
 
   merge(){
-    this.rendezvousService.getById(this.idRendezvous).subscribe(response => {
-      this.message.rendezvous = response;
-      this.utilisateurService.getById(this.idUtilisateur).subscribe(response => {
-        this.rendezvous.utilisateur = response;
+      this.rendezvousService.getById(this.idRendezvous).subscribe(response => {
+        this.message.rendezvous = response;
         this.messageService.merge(this.message).subscribe(
             response => {
               window.location.reload();
@@ -96,7 +79,6 @@ export class AjoutMessageComponent implements OnInit, OnChanges {
               console.log(error.message)
             }
           )
-        })
       }
       )
     }
