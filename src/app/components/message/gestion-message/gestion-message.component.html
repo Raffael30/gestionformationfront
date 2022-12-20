@@ -1,1 +1,9 @@
-<p>gestion-message works!</p>
+<app-header></app-header>
+
+<h1 class="text-center my-5">Messages</h1>
+
+<app-ajout-message [idMessage]="idMessage"></app-ajout-message>
+
+<app-liste-message (appelGestionMessage)="getIdMessage($event)"></app-liste-message>
+
+<app-footer></app-footer>

@@ -90,6 +90,7 @@ export class AjoutRendezvousComponent implements OnInit, OnChanges {
 
 
   merge() {
+    console.log(this.rendezvous.horaire)
     this.statutService.getById(this.idStatut).subscribe(response => {
       this.rendezvous.statut = response;
       this.prospectService.getById(this.idProspect).subscribe(response => {
