@@ -42,4 +42,8 @@ export class UtilisateurService {
     {
         return this.http.get<Utilisateur>(`http://localhost:8015/api/utilisateur/${username}`)
     }
+
+    getFromArray(tab:number[]) {
+        return this.http.post<Utilisateur[]>('http://localhost:8015/api/utilisateurs/fromArray', tab);
+    }
 }

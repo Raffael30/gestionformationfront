@@ -3,6 +3,7 @@ import { Route, RouterModule} from '@angular/router';
 import { AuthenticateGuard } from './authenticate.guard';
 import { AuthentificationComponent } from './authentification/authentification.component';
 import { AccueilComponent } from './components/accueil/accueil.component';
+import { DetailFormationComponent } from './components/formation/detail-formation/detail-formation.component';
 import { GestionFormationComponent } from './components/formation/gestion-formation/gestion-formation.component';
 import { GestionMessageComponent } from './components/message/gestion-message/gestion-message.component';
 import { GestionPaiementComponent } from './components/paiement/gestion-paiement/gestion-paiement.component';
@@ -19,6 +20,7 @@ const routes : Route [] = [
   {path: 'utilisateurs/:nomRole', component: GestionUtilisateurComponent, canActivate: [AuthenticateGuard]},
   {path: 'rendezvous', component: GestionRendezvousComponent, canActivate: [AuthenticateGuard]},
   {path: 'formations', component: GestionFormationComponent, canActivate:[AuthenticateGuard]},
+  {path: 'formations/:id', component: DetailFormationComponent, canActivate:[AuthenticateGuard]},
   {path: 'messages', component: GestionMessageComponent, canActivate:[AuthenticateGuard]},
   {path: 'paiements', component: GestionPaiementComponent, canActivate:[AuthenticateGuard]},
   {path: 'prospects', component: GestionProspectComponent},

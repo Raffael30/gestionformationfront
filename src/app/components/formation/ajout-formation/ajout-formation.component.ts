@@ -13,34 +13,49 @@ export class AjoutFormationComponent implements OnInit, OnChanges {
 
   formateurs!: Utilisateur[];
   idFormateur!: number;
-  utilisateurs!:Utilisateur[];
-  idUtilisateur!:number;
+  utilisateurs!: Utilisateur[];
+  selectedUtilisateurs: Utilisateur[] = [];
+  idUtilisateur: number[]=[];
   formation!: Formation;
 
+  utilisateur!: Utilisateur;
 
-  @Input() idFormation!:number
+
+  @Input() idFormation!: number
 
   constructor(private utilisateurService: UtilisateurService, private formationService: FormationService) { }
-  
+
 
   ngOnInit(): void {
 
-    this.idFormateur=0;
-    this.idUtilisateur=0;
+    
+   // this.idUtilisateur=[4];
+   console.log(this.formation);
+   if(this.formation==undefined)
+   {
+    this.idFormateur = 0;
     this.formation = new Formation();
+   }
     this.getAllUtilisateurs();
     this.getAllFormateurs();
   }
 
   ngOnChanges(): void {
-    
-    if(this.idFormation)
-    {
-      this.formationService.getById(this.idFormation).subscribe(response=>
+    this.formation = new Formation();
+    this.idUtilisateur=[];
+    if (this.idFormation) {
+      this.formationService.getById(this.idFormation).subscribe(response => {
+        this.formation = response;
+        this.idFormateur = this.formation.formateur.id;
+       
+        for(var u of this.formation.utilisateurs)
         {
-          this.formation= response;
-          this.idFormateur=this.formation.formateur.id;
-        })
+          console.log(u.id);
+          this.idUtilisateur.push(u.id);
+        }
+        console.log(this.idUtilisateur)
+        this.ngOnInit();
+      })
     };
   }
 
@@ -60,12 +75,30 @@ export class AjoutFormationComponent implements OnInit, OnChanges {
   merge() {
     this.utilisateurService.getById(this.idFormateur).subscribe(response => {
       this.formation.formateur = response;
-      this.formationService.merge(this.formation).subscribe
-        (response => {
-          this.formation = response;
-          window.location.reload();
+      if (this.idUtilisateur!=null) {
+        this.utilisateurService.getFromArray(this.idUtilisateur).subscribe(response2 => {
+
+          this.formation.utilisateurs = response2
+
+          this.formationService.merge(this.formation).subscribe
+            (response => {
+              this.formation = response;
+              window.location.reload();
+            })
         })
+      }
+      else
+      {
+        
+        this.formationService.merge(this.formation).subscribe
+            (response => {
+              this.formation = response;
+              window.location.reload();
+            })
+      }
+
     })
   }
+
 
 }

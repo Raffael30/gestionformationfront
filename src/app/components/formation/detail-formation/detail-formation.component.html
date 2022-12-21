@@ -1,1 +1,38 @@
-<p>detail-formation works!</p>
+<div *ngIf="formation" class="container-fluid">
+    <table *ngIf="formation.utilisateurs" class="table table-striped table-hover caption-top text-center my-4 align-midle">
+
+        <caption class="text-center fs-4">Détails de la Formation</caption>
+        <thead>
+
+
+            <tr>
+                <th>#</th>
+                <th>Nom du participant</th>
+                <th>Prénom du participant</th>
+                <th>Information</th>
+                <th *ngIf="connectedUser.role.nom==='admin'">Modifier</th>
+                <th *ngIf="connectedUser.role.nom==='admin'">Supprimer</th>
+            </tr>
+        </thead>
+        <tbody>
+
+
+          <tr *ngFor="let utilisateur of formation.utilisateurs">
+                <td>{{utilisateur.id}}</td>
+                <td>{{utilisateur.nom}}</td>
+                <td>{{utilisateur.prenom}}</td> 
+                
+                
+                <td><button class="btn btn-color" (click)="voirUtilisateur(utilisateur.id)" >Voir  </button></td>
+            
+                <td *ngIf="connectedUser.role.nom==='admin'">
+                <button class="btn btn-color" (click)="modificationUtilisateur(utilisateur.id)" >Modifier  </button>
+
+                <td *ngIf="connectedUser.role.nom==='admin'"><button class="btn btn-outline-danger"
+                (click)="delete(utilisateur.id)">Supprimer</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    
+</div>
