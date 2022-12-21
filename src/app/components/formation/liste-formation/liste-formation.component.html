@@ -11,10 +11,11 @@
                 <th>#</th>
                 <th>Nom</th>
                 <th>Lieu</th>
-                <th>Prix</th>
+               
                 <th>Date de début</th>
                 <th>Date de fin</th>
                 <th>Formateur</th>
+                <th>Participants</th>
                 <th>Coût</th>
                 <th>Information</th>
                 <th *ngIf="connectedUser.role.nom==='admin'">Modifier</th>
@@ -28,12 +29,13 @@
                 <td>{{formation.id}}</td>
                 <td>{{formation.nom}}</td>
                 <td>{{formation.lieu}}</td>
-                <td>{{formation.prix}}</td>
+                
                 <td>{{formation.dateDebut | date : 'dd/MM/yyyy'}}</td>
                 <td>{{formation.dateFin| date : 'dd/MM/yyyy'}}</td>
                 <td>{{formation.formateur.prenom + " " + formation.formateur.nom}}</td>
-               <td>{{formation.prix }} €</td>
-                <td><button class="btn btn-color" (click)="voirFormation(formation.id)" >Voir  </button></td>
+                <td>{{formation.utilisateurs.length || '0' }} </td>
+                <td>{{formation.prix }} €</td>
+                <td><button class="btn btn-color" > <a class="text-decoration-none text-light" href="/formations/{{formation.id}}">Voir </a>  </button></td>
             
                 <td *ngIf="connectedUser.role.nom==='admin'">
                 <button class="btn btn-color" (click)="modificationFormation(formation.id)" >Modifier  </button>
