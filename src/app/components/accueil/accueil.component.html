@@ -10,14 +10,14 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <div class="navbar-nav ms-auto">
                     <ul class="navbar-nav">
-                        <li class="nav-item" *ngIf="connectedUser == null">
+                        <li class="nav-item target mx-3" *ngIf="connectedUser == null">
                             <a class="text-link" routerLink="/connexion">Connexion</a>
                         </li>
-                        <li class="nav-item" *ngIf="connectedUser != null">
-                            <a class="text-link me-3" routerLink="/profil">{{connectedUser.prenom + ' ' +
+                        <li class="nav-item target mx-3" *ngIf="connectedUser != null">
+                            <a class="text-link" routerLink="/profil">{{connectedUser.prenom + ' ' +
                                 connectedUser.nom}}</a>
                         </li>
-                        <li class="nav-item" *ngIf="connectedUser != null">
+                        <li class="nav-item target mx-3" *ngIf="connectedUser != null">
                             <a class="text-link" (click)="logout()">Déconnexion</a>
                         </li>
                     </ul>

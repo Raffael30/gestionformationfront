@@ -103,23 +103,13 @@ export class AjoutUtilisateurComponent implements OnInit, OnChanges{
             if(this.createUser) {
               this.utilisateurService.add(this.utilisateur).subscribe(
                 response => {
-                  console.log('ok')
                   window.location.reload();
-                },
-                error => {
-                  console.log('non ok')
-                  console.log(error.message)
                 }
               )
             } else {
               this.utilisateurService.mergeInformations(this.utilisateur).subscribe(
                 response => {
-                  console.log('ok')
                   window.location.reload();
-                },
-                error => {
-                  console.log('non ok')
-                  console.log(error.message)
                 }
               )
             }

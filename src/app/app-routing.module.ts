@@ -23,7 +23,8 @@ const routes : Route [] = [
   {path: 'paiements', component: GestionPaiementComponent, canActivate:[AuthenticateGuard]},
   {path: 'prospects', component: GestionProspectComponent},
   {path: 'ajoutProspect', component: AjoutProspectComponent},
-  {path: 'profil', component: GestionProfilComponent}
+  {path: 'profil', component: GestionProfilComponent},
+  {path: 'profil/:item', component: GestionProfilComponent}
 
 ]
 

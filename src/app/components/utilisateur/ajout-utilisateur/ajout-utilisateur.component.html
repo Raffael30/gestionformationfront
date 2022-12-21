@@ -8,7 +8,7 @@
 
             <legend class="text-center">Informations de l'utilisateur</legend>
 
-            <div *ngIf="voirMotDePasse" class="my-3 form-floating col-md-6">
+            <div class="my-3 form-floating col-md-6">
                 <input type="text" class="form-control" id="nom" name="nom" [(ngModel)]="utilisateur.nom"
                     placeholder=" " />
                 <label class="form-label ms-2" for="nom">Nom</label>
@@ -17,17 +17,17 @@
             <div class="my-3 form-floating col-md-6">
                 <input type="text" class="form-control" id="prenom" name="prenom" [(ngModel)]="utilisateur.prenom"
                     placeholder=" " />
-                <label class="form-label ms-2" for="prenom">Prenom</label>
+                <label class="form-label ms-2" for="prenom">Prénom</label>
             </div>
 
             <div class="my-3 form-floating col-md-6">
-                <input type="text" class="form-control" id="username" name="username" [(ngModel)]="utilisateur.username"
+                <input [ngClass]="{'showInput': idProspect}" type="text" class="form-control" id="username" name="username" [(ngModel)]="utilisateur.username"
                     placeholder=" " />
                 <label class="form-label ms-2" for="username">Nom d'utilisateur</label>
             </div>
 
             <div *ngIf="voirMotDePasse" class="my-3 form-floating col-md-6">
-                <input type="password" class="form-control" id="password" name="password"
+                <input [ngClass]="{'showInput': idProspect}" type="password" class="form-control" id="password" name="password"
                     [(ngModel)]="utilisateur.password" placeholder=" " />
                 <label class="form-label ms-2" for="password">Mot de passe</label>
             </div>
@@ -41,7 +41,7 @@
             <div class="my-3 form-floating col-md-6">
                 <input type="telephone" class="form-control" id="telephone" name="telephone"
                     [(ngModel)]="utilisateur.telephone" placeholder=" " />
-                <label class="form-label ms-2" for="telephone">Telephone</label>
+                <label class="form-label ms-2" for="telephone">Téléphone</label>
             </div>
 
             <div class="my-3 form-floating col-md-6">
@@ -63,7 +63,7 @@
                     <option [value]="0" disabled>---Selectionnez un role---</option>
                     <option *ngFor="let role of roles" [value]="role.id">{{role.nom}}</option>
                 </select>
-                <label for="idRole" class="form-label ms-2">Role</label>
+                <label for="idRole" class="form-label ms-2">Rôle</label>
             </div>
 
             <div class="my-3 text-center">

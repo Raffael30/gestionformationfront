@@ -37,6 +37,7 @@ import { AjoutPaiementComponent } from './components/paiement/ajout-paiement/ajo
 import { GestionPaiementComponent } from './components/paiement/gestion-paiement/gestion-paiement.component';
 import { ListePaiementComponent } from './components/paiement/liste-paiement/liste-paiement.component';
 import { WelcomeComponent } from './components/profil/welcome/welcome.component';
+import { FormationsComponent } from './components/profil/formations/formations.component';
 
 
 
@@ -73,7 +74,8 @@ import { WelcomeComponent } from './components/profil/welcome/welcome.component'
     AjoutPaiementComponent,
     GestionPaiementComponent,
     ListePaiementComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    FormationsComponent
   ],
   imports: [
     RouterModule,

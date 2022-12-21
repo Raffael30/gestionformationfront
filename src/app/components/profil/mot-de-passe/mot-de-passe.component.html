@@ -1,1 +1,38 @@
-<p>mot-de-passe works!</p>
+<div class="container">
+
+    <h1 class="text-center my-5">Mon mot de passe</h1>
+
+    <form #f="ngForm" (ngSubmit)="mergePassword()" class="border border-radius rounded-5 p-4">
+
+        <fieldset>
+
+            <legend class="text-center">Changer mon mot de passe</legend>
+
+            <div class="my-3 form-floating col-md-6 mx-auto">
+                <input type="password" class="form-control" id="currentPassword" name="currentPassword"
+                    [(ngModel)]="currentPassword" placeholder=" " />
+                <label class="form-label ms-2" for="currentPassword">Mot de passe actuel</label>
+            </div>
+
+            <div class="my-3 form-floating col-md-6 mx-auto">
+                <input type="password" class="form-control" id="newPassword" name="newPassword"
+                    [(ngModel)]="newPassword" placeholder=" " />
+                <label class="form-label ms-2" for="newPassword">Nouveau mot de passe</label>
+            </div>
+
+            <div class="my-3 form-floating col-md-6 mx-auto">
+                <input type="password" class="form-control" id="confirmPassword" name="confirmPassword"
+                    [(ngModel)]="confirmPassword" placeholder=" " />
+                <label class="form-label ms-2" for="confirmPassword">Confirmation du nouveau mot de passe</label>
+            </div>
+
+            <div class="my-3 text-center">
+                <input class="btn btn-color w-25 py-3" type="submit" value="Envoyer" />
+            </div>
+
+        </fieldset>
+
+    </form>
+
+  
+    </div>

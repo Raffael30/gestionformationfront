@@ -41,9 +41,10 @@
                         <button class="btn btn-color"
                             (click)="modificationUtilisateur(utilisateur.id)">Modifier </button>
                     </td>
-                    <td *ngIf="connectedUser.role.nom==='admin'"><button class="btn btn-outline-danger"
+                    <td *ngIf="connectedUser.role.nom==='admin' && utilisateur.role.nom !=='admin'; else elseBlock"><button class="btn btn-outline-danger"
                             (click)="delete(utilisateur.id)">Supprimer</button>
                     </td>
+                    <ng-template #elseBlock><td>--</td></ng-template>
                 </tr>
             </tbody>
         </table>
