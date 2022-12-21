@@ -10,51 +10,51 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <div class="navbar-nav mx-lg-auto">
                     <ul class="navbar-nav">
-                        <li class="dropdown mx-3">
+                        <li class="dropdown mx-3 target">
                             <a class="dropdown-toggle text-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                               Utilisateurs
                             </a>
                             <ul class="dropdown-menu text-center">
-                                <li class="nav-item">
+                                <li class="nav-item underTarget">
                                     <a class="text-decoration-none text-dark" routerLink="/utilisateurs">Tous les utilisateurs</a>
                                 </li>
-                                <li class="nav-item">
+                                <li class="nav-item underTarget">
                                     <a class="text-decoration-none text-dark" routerLink="/utilisateurs/assistant">Assistants</a>
                                 </li>
-                                <li class="nav-item">
+                                <li class="nav-item underTarget">
                                     <a class="text-decoration-none text-dark" routerLink="/utilisateurs/commercial">Commerciaux</a>
                                 </li>
-                                <li class="nav-item">
+                                <li class="nav-item underTarget">
                                     <a class="text-decoration-none text-dark" routerLink="/utilisateurs/formateur">Formateurs</a>
                                 </li>
-                                <li class="nav-item">
+                                <li class="nav-item underTarget">
                                     <a class="text-decoration-none text-dark" routerLink="/utilisateurs/participant">Participants</a>
                                 </li>
                             </ul>
                         </li>
-                        <li class="nav-item mx-3">
+                        <li class="nav-item mx-3 target">
                             <a class="text-link" routerLink="/prospects">Prospects</a>
                         </li>
-                        <li class="nav-item mx-3">
+                        <li class="nav-item mx-3 target">
                             <a class="text-link" routerLink="/formations">Formations</a>
                         </li>
-                        <li class="nav-item mx-3">
+                        <li class="nav-item mx-3 target">
                             <a class="text-link" routerLink="/rendezvous">Rendez-Vous</a>
                         </li>
-                        <li class="nav-item mx-3">
+                        <li class="nav-item mx-3 target">
                             <a class="text-link" routerLink="/messages">Messages</a>
                         </li>
-                        <li class="nav-item mx-3">
+                        <li class="nav-item mx-3 target">
                             <a class="text-link" routerLink="/paiements">Paiements</a>
                         </li>
                     </ul>
                 </div>
 
                 <div class="navbar-nav d-flex">
-                    <li class="nav-item" *ngIf="connectedUser != null">
+                    <li class="nav-item mx-3 target" *ngIf="connectedUser != null">
                         <a class="text-link" routerLink="/profil" >{{connectedUser.prenom + ' ' + connectedUser.nom}}</a>
                     </li>
-                    <li class="nav-item" *ngIf="connectedUser != null">
+                    <li class="nav-item mx-3 target" *ngIf="connectedUser != null">
                         <a class="text-link" (click)="logout()">Déconnexion</a>
                     </li>
                 </div>

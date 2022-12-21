@@ -1,1 +1,62 @@
-<p>informations works!</p>
+
+
+<div class="container">
+
+<h1 class="text-center my-5">Mes Informations</h1>
+
+    <form #f="ngForm" (ngSubmit)="merge()" class="border border-radius rounded-5 p-4">
+
+        <fieldset class="row">
+
+            <legend class="text-center">Mes coordonnées</legend>
+
+            <div class="my-3 form-floating col-md-6">
+                <input type="text" class="form-control" id="nom" name="nom" [(ngModel)]="utilisateur.nom"
+                    placeholder=" " />
+                <label class="form-label ms-2" for="nom">Nom</label>
+            </div>
+
+            <div class="my-3 form-floating col-md-6">
+                <input type="text" class="form-control" id="prenom" name="prenom" [(ngModel)]="utilisateur.prenom"
+                    placeholder=" " />
+                <label class="form-label ms-2" for="prenom">Prenom</label>
+            </div>
+
+            <div class="my-3 form-floating col-md-6">
+                <input type="email" class="form-control" id="email" name="email" [(ngModel)]="utilisateur.email"
+                    placeholder=" " />
+                <label class="form-label ms-2" for="email">Adresse email</label>
+            </div>
+
+            <div class="my-3 form-floating col-md-6">
+                <input type="telephone" class="form-control" id="telephone" name="telephone"
+                    [(ngModel)]="utilisateur.telephone" placeholder=" " />
+                <label class="form-label ms-2" for="telephone">Telephone</label>
+            </div>
+
+            <div class="my-3 form-floating col-md-6">
+                <input type="adresse" class="form-control" id="adresse" name="adresse" [(ngModel)]="utilisateur.adresse"
+                    placeholder=" " />
+                <label class="form-label ms-2" for="adresse">Adresse postale</label>
+            </div>
+
+            <div class="my-3 form-floating col-md-6">
+                <select [(ngModel)]="idRegion" name="idRegion" class="form-select" placeholder=" ">
+                    <option [value]="0" disabled>---Selectionnez une région---</option>
+                    <option *ngFor="let region of regions" [value]="region.id">{{region.nom}}</option>
+                </select>
+                <label for="idRegion" class="form-label ms-2">Région</label>
+            </div>
+
+          
+
+            <div class="my-3 text-center">
+                <input class="btn btn-color w-25 py-3" type="submit" value="Envoyer" />
+            </div>
+
+
+        </fieldset>
+
+    </form>
+
+</div>

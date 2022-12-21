@@ -1,24 +1,55 @@
-<h1 class="text-center my-3">Connexion</h1>
+<header>
+    <nav class="navbar navbar-expand-lg bg-color">
+        <div class="container-fluid">
+            <a class="navbar-brand" routerLink="/"> <img src="http://localhost:8015/images/techFormation-logo.png"
+                    class="w-50" alt="Logo TechFormation"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <div class="navbar-nav ms-auto">
+                    <ul class="navbar-nav">
+                        <li class="nav-item" *ngIf="connectedUser == null">
+                            <a class="text-link" routerLink="/connexion">Connexion</a>
+                        </li>
+                        <li class="nav-item" *ngIf="connectedUser != null">
+                            <a class="text-link me-3" routerLink="/profil">{{connectedUser.prenom + ' ' +
+                                connectedUser.nom}}</a>
+                        </li>
+                        <li class="nav-item" *ngIf="connectedUser != null">
+                            <a class="text-link" (click)="logout()">Déconnexion</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
 
-<div class="container">
+<h1 class="text-center mt-5">Connexion</h1>
+
+<div class="container mb-5">
 
     <form #f="ngForm" (ngSubmit)="infor(f)">
 
         <fieldset>
             <legend class="text-center">Formulaire de connexion</legend>
 
-            <div class="mb-3">
-                <label for="username">Nom d'utilisateur</label>
-                <input type="text" class="form-control" id="username" name="username" [(ngModel)]="username" />
+            <div class="mb-3 form-floating col-md-6 mx-auto">
+                <input type="text" class="form-control" id="username" name="username" [(ngModel)]="username"
+                    placeholder=" " />
+                <label for="username" class="form-label ms-2">Nom d'utilisateur</label>
             </div>
 
-            <div class="mb-3">
-                <label for="password">Mot de passe</label>
-                <input type="password" class="form-control" id="password" name="password" [(ngModel)]="password" />
+            <div class="mb-3 form-floating col-md-6 mx-auto">
+                <input type="password" class="form-control" id="password" name="password" [(ngModel)]="password"
+                    placeholder=" " />
+                <label for="password" class="form-label ms-2">Mot de passe</label>
             </div>
 
             <div class="mb-3 text-center">
-                <input class="btn btn-primary" type="submit" value="Envoyer" />
+                <input class="btn btn-color w-25 py-3" type="submit" value="Envoyer" />
             </div>
 
         </fieldset>
@@ -26,4 +57,7 @@
     </form>
 
     <p *ngIf="messageErreur!=''">{{messageErreur}}</p>
+
 </div>
+
+<app-footer></app-footer>

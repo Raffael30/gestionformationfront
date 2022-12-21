@@ -17,12 +17,14 @@ export class ListeUtilisateurComponent implements OnInit {
   nomRole!: string;
   utilisateurSelected!: Utilisateur;
 
+
+
   idRole!: number;
   idRegion!: number;
   idUtilisateur!: number;
 
 
-  constructor(private utilisateurService: UtilisateurService, private activatedRoute: ActivatedRoute, private route:Router) { 
+  constructor(private utilisateurService: UtilisateurService, private activatedRoute: ActivatedRoute, private route: Router) {
     this.route.routeReuseStrategy.shouldReuseRoute = () => false;
   }
 
@@ -30,7 +32,7 @@ export class ListeUtilisateurComponent implements OnInit {
   @Output() appelGestionUtilisateur = new EventEmitter<number>()
 
   ngOnInit(): void {
-    
+
     this.nomRole = this.activatedRoute.snapshot.params['nomRole'];
     if (sessionStorage.getItem('connectedUser') != null) {
       this.connectedUser = JSON.parse(sessionStorage.getItem('connectedUser') ?? "");
@@ -65,13 +67,21 @@ export class ListeUtilisateurComponent implements OnInit {
   }
 
   delete(id: number) {
-    this.utilisateurService.delete(id).subscribe(
-      response => {
-        this.getAll();
-      },
-      error => {
-        console.log(error.message)
+    this.utilisateurService.getById(id).subscribe(response => {
+      this.utilisateurSelected = response;
+      if (this.utilisateurSelected.role.nom != 'admin') {
+        this.utilisateurService.delete(id).subscribe(
+          response => {
+            this.getAll();
+          },
+          error => {
+            console.log(error.message)
+          }
+        )
+      } else {
+        alert('Vous ne pouvez pas supprimer un admin !')
       }
+    }
     )
   }
 }

@@ -6,17 +6,20 @@
 
         <div class="col-md-3 col-10 mx-auto my-2">
             <ul class="list-group">
-                <li class="list-group-item activeItem">Mon profil</li>
-                <li class="list-group-item">Mes informations</li>
-                <li class="list-group-item">Mon mot de passe</li>
-                <li class="list-group-item">Mes formations</li>
+                <li [ngClass]="{'activeItem': item === 'welcome'}" class="list-group-item "><a routerLink="/profil">Mon profil</a></li>
+                <li [ngClass]="{'activeItem': item === 'mesInformations'}" class="list-group-item"><a routerLink="/profil/mesInformations">Mes informations</a></li>
+                <li [ngClass]="{'activeItem': item === 'monMotDePasse'}" class="list-group-item"><a routerLink="/profil/monMotDePasse">Mon mot de passe</a></li>
+                <li [ngClass]="{'activeItem': item === 'mesFormations'}" class="list-group-item"><a routerLink="/profil/mesFormations">Mes formations</a></li>
+                <li [ngClass]="{'activeItem': item === 'mesRendezVous'}" class="list-group-item"><a routerLink="/profil/mesRendezVous">Mes rendez-vous</a></li>
+                <li [ngClass]="{'activeItem': item === 'mesPaiements'}" class="list-group-item"><a routerLink="/profil/mesPaiements">Mes paiements</a></li>
             </ul>
         </div>
 
-        <div class=" col-md-9 col-10">
-
-            <app-welcome></app-welcome>
-
+        <div class=" col-md-9 mx-auto">
+            <app-welcome *ngIf="item =='welcome'"></app-welcome>
+            <app-informations *ngIf="item =='mesInformations'"></app-informations>
+            <app-mot-de-passe *ngIf="item =='monMotDePasse'"></app-mot-de-passe>
+            <app-formations *ngIf="item =='mesFormations'"></app-formations>
         </div>
     </div>
 </div>

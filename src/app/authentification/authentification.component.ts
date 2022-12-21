@@ -42,6 +42,13 @@ export class AuthentificationComponent implements OnInit {
       });
   }
 
+  logout()
+  {
+    sessionStorage.clear();
+    this.route.navigateByUrl("connexion");
+  }
+
+
   infor(f: NgForm) {
     this.connexion();
   }

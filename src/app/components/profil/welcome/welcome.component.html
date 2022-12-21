@@ -1,10 +1,12 @@
-<div class="row mx-auto row-cols-1 row-cols-md-5  text-center">
+<h1 class="text-center my-5">Mon profil</h1>
+
+<div class="row mx-auto row-cols-1 row-cols-md-6 text-center gx-5">
 
     <div class="card mx-auto my-2">
         <img src="http://localhost:8015/images/informations.png" class="card-img-top" alt="Image des informations">
         <div class="card-body">
             <h5 class="card-title">Mes informations</h5>
-            <a href="#" class="btn btn-color my-3">Voir</a>
+            <a routerLink="/profil/mesInformations" class="btn btn-color my-3">Voir</a>
         </div>
     </div>
 
@@ -12,7 +14,7 @@
         <img src="http://localhost:8015/images/password.png" class="card-img-top" alt="Image du mot de passe">
         <div class="card-body">
             <h5 class="card-title">Mon mot de passe</h5>
-            <a href="#" class="btn btn-color my-3">Voir</a>
+            <a routerLink="/profil/monMotDePasse" class="btn btn-color my-3">Voir</a>
         </div>
     </div>
 
@@ -20,14 +22,67 @@
         <img src="http://localhost:8015/images/formations.png" class="card-img-top" alt="Image des formations">
         <div class="card-body">
             <h5 class="card-title">Mes formations</h5>
-            <a href="#" class="btn btn-color my-3">Voir</a>
+            <a routerLink="/profil/mesFormations" class="btn btn-color my-3">Voir</a>
         </div>
     </div>
+
     <div class="card mx-auto my-2">
+        <img src="http://localhost:8015/images/rendezvous.png" class="card-img-top" alt="Image des rendez-vous">
+        <div class="card-body">
+            <h5 class="card-title">Mes rendez-vous</h5>
+            <a routerLink="/profil/mesRendezVous" class="btn btn-color my-3">Voir</a>
+        </div>
+    </div>
+
+    <div class="card mx-auto my-2">
+        <img src="http://localhost:8015/images/paiements.png" class="card-img-top" alt="Image des paiements">
+        <div class="card-body">
+            <h5 class="card-title">Mes paiements</h5>
+            <a routerLink="/profil/mesPaiements" class="btn btn-color my-3">Voir</a>
+        </div>
+    </div>
+
+    <div *ngIf="utilisateur.role.nom !== 'admin'" class="card mx-auto my-2">
         <img src="http://localhost:8015/images/supprimer.png" class="card-img-top" alt="Image Suppression">
         <div class="card-body">
             <h5 class="card-title">Supprimer mon compte</h5>
-            <a href="#" class="btn btn-danger my-3">Voir</a>
+            <a data-bs-toggle="modal" data-bs-target="#suppressionModal" class="btn btn-danger my-3">Voir</a>
         </div>
     </div>
+
+    <div *ngIf="utilisateur.role.nom !== 'admin'" class="modal fade" id="suppressionModal" tabindex="-1" aria-labelledby="suppressionModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5 mx-auto" id="suppressionModalLabel">Suppression du compte</h1>
+                </div>
+                <div class="modal-body">
+                    <p class="fw-bold">Voulez-vous vraiment supprimer votre compte ?</p>
+                    <p class="text-muted"><i class="bi bi-exclamation-triangle-fill"></i> Vous ne pouvez pas supprimer
+                        votre compte si vous avez une formation en cours !</p>
+
+                    <form (ngSubmit)="delete()">
+
+                        <div class="mb-3 form-floating col-md-10 mx-auto">
+                            <input type="password" class="form-control" id="password" name="password"
+                                [(ngModel)]="password" placeholder=" " />
+                            <label for="password" class="form-label ms-2">Mot de passe</label>
+                        </div>
+
+                        <div class="mb-3 text-center">
+                            <input class="btn btn-danger w-25 py-2" type="submit" value="Supprimer" />
+                        </div>
+
+                        <div class="mx-auto">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                        </div>
+                    </form>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
 </div>
