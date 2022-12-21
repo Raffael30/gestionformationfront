@@ -10,7 +10,7 @@ export class Formation {
     dateDebut!:Date
     dateFin!:Date
 
-    utilisateurs!:Utilisateur[]
+    utilisateurs:Utilisateur[]=[]
     paiements!:Paiement[]
     formateur!:Utilisateur
 

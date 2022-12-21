@@ -27,6 +27,18 @@ export class FormationService {
 
   merge(formation:Formation)
   {
+    console.log('dans le service')
+    console.log(formation.utilisateurs);
     return this.http.put<Formation>('http://localhost:8015/api/formations', formation) 
+  }
+
+  getByUtilisateursId(id:number)
+  {
+    return this.http.get<Formation[]>(`http://localhost:8015/api/formationsParUtilisateur/${id}`)
+  }
+
+  getByNom(nom:string)
+  {
+    return this.http.get<Formation[]>(`http://localhost:8015/api/formationsParNomFormation/${nom}`)
   }
 }
