@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Formation } from 'src/app/models/formation';
 import { Utilisateur } from 'src/app/models/utilisateur';
+import { FormationService } from 'src/app/services/formation.service';
 import { UtilisateurService } from 'src/app/services/utilisateur.service';
 
 @Component({
@@ -11,12 +13,48 @@ import { UtilisateurService } from 'src/app/services/utilisateur.service';
 export class VoirUtilisateurComponent implements OnInit{
 
   idUtilisateur!:number;
+ 
   utilisateur!:Utilisateur;
+  utilisateurs!:Utilisateur[];
 
-  constructor(private activatedRoute:ActivatedRoute, private utilisateurService:UtilisateurService) {}
+  connectedUser!:Utilisateur;
 
+  idFormation!:number;
+  formation!:Formation;
+  formations!:Formation[];
+
+  @Output() appelGestionUtilisateur= new EventEmitter<number>();
+
+  constructor(private utilisateurService:UtilisateurService, private formationService:FormationService, private activatedRoute:ActivatedRoute){}
+  
   ngOnInit(): void {
-    this.idUtilisateur = this.activatedRoute.snapshot.params['idUtilisateur'];
+
+    
+    this.idUtilisateur = this.activatedRoute.snapshot.params['id'];
+    if(sessionStorage.getItem('connectedUser') != null) {
+      this.connectedUser = JSON.parse(sessionStorage.getItem('connectedUser') ?? "") ;
+    };
+
+    if (this.idUtilisateur) {
+      this.getIdUtilisateur(this.idUtilisateur);
+      this.getByUtilisateursId(this.idUtilisateur);
+    }
   }
 
+  getIdUtilisateur(idUtilisateur:number)
+  {
+    
+    this.utilisateurService.getById(idUtilisateur).subscribe(response=>
+      {
+        this.utilisateur=response;
+      })
+  }
+  
+  getByUtilisateursId(id:number)
+  {
+    this.formationService.getByUtilisateursId(id).subscribe(response=>
+      {
+        this.formations=response;
+      })
+  }
 }

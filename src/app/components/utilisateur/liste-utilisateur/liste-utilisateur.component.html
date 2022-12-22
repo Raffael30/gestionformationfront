@@ -32,10 +32,7 @@
                     <td>{{utilisateur.dateInscription | date : 'dd/MM/yyyy'}}</td>
                     <td>{{utilisateur.username}}</td>
                     <td>{{utilisateur.role.nom}}</td>
-                    <td *ngIf="connectedUser.role.nom !=='participant'">
-                        <button class="btn btn-color"
-                        (click)="modificationUtilisateur(utilisateur.id)">Voir </button>
-                    </td>
+                    <td><button class="btn btn-color" > <a class="text-decoration-none text-light" href="/utilisateur/{{utilisateur.id}}">Voir </a>  </button></td>
 
                     <td *ngIf="connectedUser.role.nom==='admin'">
                         <button class="btn btn-color"
