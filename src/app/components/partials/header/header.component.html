@@ -9,7 +9,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <div class="navbar-nav mx-lg-auto">
-                    <ul class="navbar-nav">
+                    <ul class="navbar-nav text-center">
                         <li class="dropdown mx-3 target">
                             <a class="dropdown-toggle text-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                               Utilisateurs
@@ -50,7 +50,7 @@
                     </ul>
                 </div>
 
-                <div class="navbar-nav d-flex">
+                <div class="navbar-nav d-flex text-center">
                     <li class="nav-item mx-3 target" *ngIf="connectedUser != null">
                         <a class="text-link" routerLink="/profil" >{{connectedUser.prenom + ' ' + connectedUser.nom}}</a>
                     </li>

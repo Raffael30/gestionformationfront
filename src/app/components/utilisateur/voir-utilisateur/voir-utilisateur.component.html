@@ -1,8 +1,51 @@
 <app-header></app-header>
 
-<div class="container">
-    <p>Nom : {{utilisateur.nom}}</p>
-    <p>PrÃ©nom : {{utilisateur.prenom}}</p>
+<div *ngIf="utilisateur" class="container-fluid">
+    <p>{{utilisateur.nom}}</p>
+    <p>{{utilisateur.prenom}}</p>
+    <p>{{utilisateur.adresse}}</p>
+    <p>{{utilisateur.email}}</p>
+    <p>{{utilisateur.telephone}}</p>
+    <p>{{utilisateur.region.nom}}</p>
+    <p>{{utilisateur.dateInscription | date : 'dd/MM/yyyy'}}</p>
+    <p>{{utilisateur.username}}</p>
+    <p>{{utilisateur.role.nom}}</p>
+
+<table *ngIf="formations.length != 0; else elseFormations"  class="table table-striped table-hover caption-top text-center my-4 align-midle">
+
+    <caption class="text-center fs-4">Details de la formation</caption>
+    <thead>
+
+
+        <tr>
+            <th>#</th>
+            <th>Nom de la formation</th>
+            <th>Date de debut</th>
+            <th>Date de fin</th>
+            <th>Lieu</th>
+
+        </tr>
+    </thead>
+    <tbody>
+
+
+      <tr *ngFor="let formation of formations">
+            <td>{{formation.id}}</td>
+            <td>{{formation.nom}}</td>
+            <td>{{formation.dateDebut | date : 'dd/MM/yyyy'}}</td>
+            <td>{{formation.dateFin | date : 'dd/MM/yyyy'}}</td>
+            <td>{{formation.lieu}}</td>
+            
+            
+            
+        </tr>
+    </tbody>
+</table>
+
+<ng-template #elseFormations>
+    <p class="text-center fs-3">Vous avez participé à aucune formation.</p>
+</ng-template>
+
 </div>
 
 <app-footer></app-footer>
