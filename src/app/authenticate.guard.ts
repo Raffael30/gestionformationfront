@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
-import { Observable } from 'rxjs';
+import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot } from '@angular/router';
+import { Role } from './models/role';
 import { Utilisateur } from './models/utilisateur';
 
 @Injectable({
@@ -18,7 +18,10 @@ export class AuthenticateGuard implements CanActivate {
 
 
   connectedUser!: Utilisateur
-  constructor(private route: Router) {  }
+  roles!: string[];
+  valid!: boolean;
+
+  constructor(private route: Router) { }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
 
@@ -28,8 +31,31 @@ export class AuthenticateGuard implements CanActivate {
       this.route.navigateByUrl('connexion');
       return false;
     }
-    return true;
+    else {
+      this.valid = false;
+      this.connectedUser = JSON.parse(sessionStorage.getItem('connectedUser') ?? "");
+      if (route.data['roles']) {
+        this.roles = route.data['roles'];
+        for (let role of this.roles) {
+          if (role == this.connectedUser.role.nom) {
+            console.log('if');
+            this.valid = true;
+            break;
+
+          }
+        }
+        if(this.valid){
+          return true;
+        } else {
+          this.route.navigateByUrl('/profil');
+          return false;
+        }
+      } else {
+        return true;
+      }
+
+    }
   }
 
-  
+
 }
