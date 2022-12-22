@@ -1,42 +1,59 @@
+<div class="container">
+    <form #f="ngForm" (ngSubmit)="filter()">
+        <div class="row">
+            <div class="my-1 form-floating col-md-4">
+                <select [(ngModel)]="idFormation" name="idFormation" class="form-select" placeholder=" ">
+                    <option [value]="0">Aucune formation sélectionnée</option>
+                    <option *ngFor="let formation of formations" [value]="formation.id">{{formation.nom}}</option>
+                </select>
+                <label for="idFormation" class="form-label ms-2">Formation</label>
+            </div>
+
+            <div class="my-1 form-floating col-md-4">
+                <select [(ngModel)]="idParticipant" name="idParticipant" class="form-select" placeholder=" ">
+                    <option [value]="0">Aucun participant sélectionné</option>
+                    <option *ngFor="let participant of participants" [value]="participant.id">{{participant.nom}}
+                    </option>
+                </select>
+                <label for="idParticipant" class="form-label ms-2">Participant</label>
+            </div>
+
+            <div class="my-1 form-floating col-md-4 text-center">
+                <button class="btn btn-color py-3 w-25">Filtrer</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+
 <div class="container-fluid">
+
     <table class="table table-striped table-hover caption-top text-center my-4">
 
-        <caption class="text-center fs-4">Liste des formations</caption>
+        <caption class="text-center fs-4">Liste des paiements</caption>
+
         <thead>
-
-
             <tr>
                 <th>#</th>
                 <th>Nom Formation</th>
-                <th>Montant</th>
-                
+                <th>Prix</th>
+                <th>Versement</th>
                 <th>Participants</th>
                 <th>Statut</th>
-                <th>Information</th>
-                
-                <th *ngIf="connectedUser.role.nom==='admin'">Modifier</th>
-                <th *ngIf="connectedUser.role.nom==='admin'">Supprimer</th>
             </tr>
         </thead>
         <tbody>
 
 
-            <tr *ngFor="let montant of montants">
-                <td>{{montant.id}}</td>
-                <td>{{montant.formation.nom}}</td>
-                <td>{{montant.montant}} €</td>
-                
-                <td>{{montant.utilisateur.nom}}</td>
-                <td>{{montant.statut}}</td>
-                
-                <td><button class="btn btn-outline-primary" (click)="voirPaiement(montant.id)" >Voir  </button></td>
-            
-                <td *ngIf="connectedUser.role.nom==='admin'">
-                <button class="btn btn-outline-primary" (click)="modificationPaiement(montant.id)" >Modifier  </button>
+            <tr *ngFor="let paiement of paiements">
+                <td>{{paiement.id}}</td>
+                <td>{{paiement.formation.nom}}</td>
+                <td>{{paiement.formation.prix}} €</td>
+                <td>{{paiement.montant}} €</td>
 
-                <td *ngIf="connectedUser.role.nom==='admin'"><button class="btn btn-outline-danger"
-                (click)="delete(montant.id)">Supprimer</button>
-                </td>
+                <td>{{paiement.utilisateur.nom}}</td>
+                <td>{{paiement.statut.nom}}</td>
+   
             </tr>
         </tbody>
     </table>
