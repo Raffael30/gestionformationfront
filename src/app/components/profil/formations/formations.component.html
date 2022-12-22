@@ -2,7 +2,9 @@
 
     <h1 class="text-center my-5">Mes formations</h1>
 
-    <div class="table-responsive">
+
+    <div *ngIf="formations.length != 0; else elseFormations" class="table-responsive">
+
         <table class="table table-striped table-hover caption-top text-center align-midle">
 
             <caption class="text-center fs-4">Liste de mes formations</caption>
@@ -16,7 +18,8 @@
                     <th>Fin</th>
                     <th>Formateur</th>
                     <th>Coût</th>
-                    <th>Dû</th>
+                    <th>Statut</th>
+
                 </tr>
             </thead>
 
@@ -29,10 +32,21 @@
                     <td>{{formation.dateFin| date : 'dd/MM/yyyy'}}</td>
                     <td>{{formation.formateur.prenom + " " + formation.formateur.nom}}</td>
                     <td>{{formation.prix }} €</td>
-                    <td>--</td>
+
+                    <td *ngIf="formation.dateFin <= today; else elseStatut">En cours</td>
+                    <ng-template #elseStatut>
+                        <td>Terminé</td>
+                    </ng-template>
+
                 </tr>
             </tbody>
 
         </table>
     </div>
+
+
+    <ng-template #elseFormations>
+        <p class="text-center fs-3">Vous avez participé à aucune formation.</p>
+    </ng-template>
+
 </div>
