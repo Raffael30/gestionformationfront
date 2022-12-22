@@ -17,16 +17,40 @@ import { VoirUtilisateurComponent } from './components/utilisateur/voir-utilisat
 const routes : Route [] = [
   {path: '', component: AccueilComponent},
   {path: 'connexion', component: AuthentificationComponent},
-  {path: 'utilisateur/:id', component: VoirUtilisateurComponent, canActivate: [AuthenticateGuard]},
-  {path: 'utilisateurs', component: GestionUtilisateurComponent, canActivate: [AuthenticateGuard]},
+  {path: 'utilisateur/:id', component: VoirUtilisateurComponent, canActivate: [AuthenticateGuard], 
+  data: {
+    roles: ['admin','assistant']
+  }},
+  {path: 'utilisateurs', component: GestionUtilisateurComponent, canActivate: [AuthenticateGuard], 
+  data: {
+    roles: ['admin','assistant']
+  }},
   {path: 'utilisateurs/:nomRole', component: GestionUtilisateurComponent, canActivate: [AuthenticateGuard]},
-  {path: 'rendezvous', component: GestionRendezvousComponent, canActivate: [AuthenticateGuard]},
-  {path: 'formations', component: GestionFormationComponent, canActivate:[AuthenticateGuard]},
-  {path: 'formations/:id', component: DetailFormationComponent, canActivate:[AuthenticateGuard]},
-  {path: 'messages', component: GestionMessageComponent, canActivate:[AuthenticateGuard]},
-  {path: 'paiements', component: GestionPaiementComponent, canActivate:[AuthenticateGuard]},
-  {path: 'prospects', component: GestionProspectComponent, canActivate:[AuthenticateGuard]},
-  {path: 'ajoutProspect', component: AjoutProspectComponent, canActivate:[AuthenticateGuard]},
+  {path: 'rendezvous', component: GestionRendezvousComponent, canActivate: [AuthenticateGuard], 
+  data: {
+    roles: ['admin','assistant', 'commercial']
+  }},
+  {path: 'formations', component: GestionFormationComponent, canActivate:[AuthenticateGuard],
+  data: {
+    roles: ['admin','assistant']
+  }},
+  {path: 'formations/:id', component: DetailFormationComponent, canActivate:[AuthenticateGuard], 
+  data: {
+    roles: ['admin','assistant']
+  }},
+  {path: 'messages', component: GestionMessageComponent, canActivate:[AuthenticateGuard], 
+  data: {
+    roles: ['admin','assistant']
+  }},
+  {path: 'paiements', component: GestionPaiementComponent, canActivate:[AuthenticateGuard], 
+  data: {
+    roles: ['admin','assistant']
+  }},
+  {path: 'prospects', component: GestionProspectComponent, canActivate:[AuthenticateGuard], 
+  data: {
+    roles: ['admin','assistant', 'commercial']
+  }},
+  {path: 'ajoutProspect', component: AjoutProspectComponent},
   {path: 'profil', component: GestionProfilComponent, canActivate:[AuthenticateGuard]},
   {path: 'profil/:item', component: GestionProfilComponent, canActivate:[AuthenticateGuard]},
 

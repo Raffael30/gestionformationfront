@@ -10,7 +10,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <div class="navbar-nav mx-lg-auto">
                     <ul class="navbar-nav text-center">
-                        <li class="dropdown mx-3 target">
+                        <li class="dropdown mx-3 target" *ngIf="connectedUser != null && (connectedUser.role.nom=='admin' || connectedUser.role.nom=='assistant')">
                             <a class="dropdown-toggle text-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                               Utilisateurs
                             </a>
@@ -32,19 +32,19 @@
                                 </li>
                             </ul>
                         </li>
-                        <li class="nav-item mx-3 target">
+                        <li class="nav-item mx-3 target" *ngIf="connectedUser != null && (connectedUser.role.nom=='admin' || connectedUser.role.nom=='assistant' || connectedUser.role.nom=='commercial')">
                             <a class="text-link" routerLink="/prospects">Prospects</a>
                         </li>
-                        <li class="nav-item mx-3 target">
+                        <li class="nav-item mx-3 target" *ngIf="connectedUser != null && (connectedUser.role.nom=='admin' || connectedUser.role.nom=='assistant')">
                             <a class="text-link" routerLink="/formations">Formations</a>
                         </li>
-                        <li class="nav-item mx-3 target">
+                        <li class="nav-item mx-3 target" *ngIf="connectedUser != null && (connectedUser.role.nom=='admin' || connectedUser.role.nom=='assistant' || connectedUser.role.nom=='commercial') ">
                             <a class="text-link" routerLink="/rendezvous">Rendez-Vous</a>
                         </li>
-                        <li class="nav-item mx-3 target">
+                        <li class="nav-item mx-3 target" *ngIf="connectedUser != null && (connectedUser.role.nom=='admin' || connectedUser.role.nom=='assistant')">
                             <a class="text-link" routerLink="/messages">Messages</a>
                         </li>
-                        <li class="nav-item mx-3 target">
+                        <li class="nav-item mx-3 target" *ngIf="connectedUser != null && (connectedUser.role.nom=='admin' || connectedUser.role.nom=='assistant')">
                             <a class="text-link" routerLink="/paiements">Paiements</a>
                         </li>
                     </ul>
