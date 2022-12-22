@@ -53,7 +53,6 @@ const routes : Route [] = [
   {path: 'ajoutProspect', component: AjoutProspectComponent},
   {path: 'profil', component: GestionProfilComponent, canActivate:[AuthenticateGuard]},
   {path: 'profil/:item', component: GestionProfilComponent, canActivate:[AuthenticateGuard]},
-
 ]
 
 @NgModule({
