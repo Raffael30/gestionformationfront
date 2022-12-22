@@ -8,7 +8,8 @@
 
             <div class="mb-3 form-floating">
                 <input type="datetime-local" class="form-control" id="horaire" name="horaire"
-                    [ngModel]="rendezvous.horaire | date:'yyyy-MM-dd HH:mm'" (ngModelChange)="rendezvous.horaire=$event" placeholder=" " />
+                    [ngModel]="rendezvous.horaire | date:'yyyy-MM-dd HH:mm'" (ngModelChange)="rendezvous.horaire=$event"
+                    placeholder=" " />
                 <label for="horaire" class="form-label ms-2">Date</label>
             </div>
 

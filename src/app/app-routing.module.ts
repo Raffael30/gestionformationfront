@@ -12,10 +12,12 @@ import { AjoutProspectComponent } from './components/prospect/ajout-prospect/ajo
 import { GestionProspectComponent } from './components/prospect/gestion-prospect/gestion-prospect.component';
 import { GestionRendezvousComponent } from './components/rendezvous/gestion-rendezvous/gestion-rendezvous.component';
 import { GestionUtilisateurComponent } from './components/utilisateur/gestion-utilisateur/gestion-utilisateur.component';
+import { VoirUtilisateurComponent } from './components/utilisateur/voir-utilisateur/voir-utilisateur.component';
 
 const routes : Route [] = [
   {path: '', component: AccueilComponent},
   {path: 'connexion', component: AuthentificationComponent},
+  {path: 'utilisateur/:id', component: VoirUtilisateurComponent, canActivate: [AuthenticateGuard]},
   {path: 'utilisateurs', component: GestionUtilisateurComponent, canActivate: [AuthenticateGuard]},
   {path: 'utilisateurs/:nomRole', component: GestionUtilisateurComponent, canActivate: [AuthenticateGuard]},
   {path: 'rendezvous', component: GestionRendezvousComponent, canActivate: [AuthenticateGuard]},
@@ -23,11 +25,10 @@ const routes : Route [] = [
   {path: 'formations/:id', component: DetailFormationComponent, canActivate:[AuthenticateGuard]},
   {path: 'messages', component: GestionMessageComponent, canActivate:[AuthenticateGuard]},
   {path: 'paiements', component: GestionPaiementComponent, canActivate:[AuthenticateGuard]},
-  {path: 'prospects', component: GestionProspectComponent},
-  {path: 'ajoutProspect', component: AjoutProspectComponent},
-  {path: 'profil', component: GestionProfilComponent},
-  {path: 'profil/:item', component: GestionProfilComponent}
-
+  {path: 'prospects', component: GestionProspectComponent, canActivate:[AuthenticateGuard]},
+  {path: 'ajoutProspect', component: AjoutProspectComponent, canActivate:[AuthenticateGuard]},
+  {path: 'profil', component: GestionProfilComponent, canActivate:[AuthenticateGuard]},
+  {path: 'profil/:item', component: GestionProfilComponent, canActivate:[AuthenticateGuard]},
 ]
 
 @NgModule({

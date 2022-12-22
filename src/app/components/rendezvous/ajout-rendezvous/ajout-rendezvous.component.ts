@@ -52,7 +52,7 @@ export class AjoutRendezvousComponent implements OnInit, OnChanges {
         this.idStatut = this.rendezvous.statut.id;
         this.idProspect = this.rendezvous.prospect.id;
         this.idUtilisateur = this.rendezvous.utilisateur.id;
-      })
+       })
     }
 
   }
@@ -90,16 +90,15 @@ export class AjoutRendezvousComponent implements OnInit, OnChanges {
 
 
   merge() {
-    console.log(this.rendezvous.horaire)
     this.statutService.getById(this.idStatut).subscribe(response => {
       this.rendezvous.statut = response;
-      this.prospectService.getById(this.idProspect).subscribe(response => {
-        this.rendezvous.prospect = response;
-        this.utilisateurService.getById(this.idUtilisateur).subscribe(response => {
-          this.rendezvous.utilisateur = response;
+      this.prospectService.getById(this.idProspect).subscribe(response2 => {
+        this.rendezvous.prospect = response2;
+        this.utilisateurService.getById(this.idUtilisateur).subscribe(response3 => {
+          this.rendezvous.utilisateur = response3;
           this.rendezvousService.merge(this.rendezvous).subscribe(
             response => {
-              window.location.reload();
+             window.location.reload();
             },
             error => {
               console.log(error.message)
